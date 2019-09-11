@@ -25,9 +25,9 @@
            
             <div class="input">
               <span class="fa fa-user-o" aria-hidden="true"></span>
-              <div class="text-danger" *ngIf="registerForm.controls['email'].hasError('required')">
+              <!-- <div class="text-danger" *ngIf="registerForm.controls['email'].hasError('required')">
                 Email is Required!
-              </div>
+              </div> -->
               <input [ngClass]="
                   registerForm.controls['email'].invalid ? 'is-invalid' : ''
                 " type="text" formControlName="email" placeholder="Username/email" name="name" required />
