@@ -6,6 +6,8 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { RegisterComponent } from "./auth/register/register.component";
 import { ForgotComponent } from "./auth/forgot/forgot.component";
+import { AuthorizeService } from "./auth/authorize.service";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -14,8 +16,14 @@ import { ForgotComponent } from "./auth/forgot/forgot.component";
     RegisterComponent,
     ForgotComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [AuthorizeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -4,5 +4,4 @@ var loginSchema = new mongoose.Schema({
     password: String
 });
 
-module.exports =
-    loginSchema
+module.exports = loginSchema

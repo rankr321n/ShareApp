@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { AuthorizeService } from "../authorize.service";
+import { first } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -9,7 +12,12 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
-  constructor(private fb: FormBuilder) {}
+  error: string;
+  constructor(
+    private fb: FormBuilder,
+    private auth: AuthorizeService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.fb.group({
@@ -35,6 +43,15 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    alert("SUCCESS!! :-)");
+    this.auth
+      .authenticate(
+        this.loginForm.value.username,
+        this.loginForm.value.password
+      )
+      .pipe(first())
+      .subscribe(
+        result => this.router.navigate(["forgot"]),
+        err => (this.error = "Could not authenticate")
+      );
   }
 }

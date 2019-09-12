@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { CustomValidators } from "./custom-validators";
+import { RegisterService } from "./register.service";
 
 @Component({
   selector: "app-register",
@@ -9,8 +10,8 @@ import { CustomValidators } from "./custom-validators";
 })
 export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
-  verifyForm: any;
-  constructor(private fb: FormBuilder) {}
+  // role = "user";
+  constructor(private fb: FormBuilder, private reg: RegisterService) {}
 
   ngOnInit() {
     this.registerForm = this.fb.group(
@@ -19,6 +20,7 @@ export class RegisterComponent implements OnInit {
           null,
           Validators.compose([Validators.email, Validators.required])
         ],
+        role: ["user"],
         password: [
           null,
           Validators.compose([
@@ -54,6 +56,11 @@ export class RegisterComponent implements OnInit {
     );
   }
   submit() {
-    console.log("VALIDATION");
+    if (this.registerForm.invalid) {
+      return;
+    }
+    {
+      this.reg.registerUser(this.registerForm.value).subscribe();
+    }
   }
 }

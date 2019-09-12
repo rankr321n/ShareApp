@@ -1,20 +1,22 @@
 var express = require('express')
-var loginModel = require('./model')
+var registerModel = require('../register/register-model')
+
 
 var router = express.Router();
 
+
 var handler = function (req, res) {
-    loginModel
-        .find()
+    registerModel
+        .find({
+            email: req.body.email
+        })
         .then(function (users) {
             return res.send(users);
-        })["catch"](function (e) {
-            return res.send({
-                message: e.message
-            });
-        });
+        })
+        .catch((e) => {
+            console.log(e);
+        })
 }
-
-router.get("/login", handler);
+router.post("/users", handler);
 
 module.exports = router
