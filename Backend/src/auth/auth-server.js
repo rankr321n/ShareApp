@@ -26,7 +26,7 @@ module.exports = {
           res.json({
             status: "success",
             message: "user found!!!",
-            // token: token,
+            
             data: {
               user: user._id,
               token: token

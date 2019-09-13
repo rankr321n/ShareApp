@@ -14,7 +14,7 @@ module.exports = {
             }, function (err, user) {
 
                 // Make sure user doesn't already exist
-                if (user) return res.status(400).send({
+                if (err) return res.status(400).send({
                     msg: 'The email address you have entered is already associated with another account.'
                 })
             },
