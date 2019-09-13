@@ -17,6 +17,16 @@ var registerSchema = new mongoose.Schema({
         type: String,
         required: true,
         trim: true
+    },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
+    createdAt: {
+        type: Date,
+        required: true,
+        default: Date.now,
+        expires: 43200
     }
 
 });

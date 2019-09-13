@@ -8,13 +8,15 @@ import { RegisterComponent } from "./auth/register/register.component";
 import { ForgotComponent } from "./auth/forgot/forgot.component";
 import { AuthorizeService } from "./auth/authorize.service";
 import { HttpClientModule } from "@angular/common/http";
+import { AdmindashboardComponent } from "./AdminModule/admin/admindashboard/admindashboard.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ForgotComponent
+    ForgotComponent,
+    AdmindashboardComponent
   ],
   imports: [
     BrowserModule,

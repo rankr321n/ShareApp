@@ -15,8 +15,6 @@ module.exports = {
       } else {
         const isMatch = await bcrypt.compare(req.body.password, user.password);
 
-        // console.log(isMatch);
-        // isMatch ? res.status(200).send("true") : res.status(400).send("false")
 
         if (isMatch) {
           const token = jwt.sign({

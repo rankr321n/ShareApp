@@ -6,52 +6,32 @@ const jwt = require('jsonwebtoken');
 // var router = express.Router();
 
 module.exports = {
+
     create: function (req, res, next) {
+        // Make sure this account doesn't already exist
+        registerModel.findOne({
+                email: req.body.email
+            }, function (err, user) {
 
-        registerModel.create({
-                email: req.body.email,
-                role: req.body.role,
-                password: req.body.password
+                // Make sure user doesn't already exist
+                if (user) return res.status(400).send({
+                    msg: 'The email address you have entered is already associated with another account.'
+                })
             },
-            function (err, result) {
-                if (err)
-                    next(err);
-                else
-                    res.json({
-                        status: "success",
-                        message: "User added successfully!!!",
-                        data: null
-                    });
+            registerModel.create({
+                    email: req.body.email,
+                    role: req.body.role,
+                    password: req.body.password
+                },
+                function (err) {
+                    if (err)
+                        next(err);
+                    else
+                        res.json({
+                            status: "success",
+                            message: "User added successfully!!!"
+                        });
 
-            });
+                }));
     }
 }
-
-//router.post('/users',registerationControl);
-
-
-// var handler = function (req, res) {
-//     console.log(`[handler]`, req.body);
-
-//     var data = new registerModel(req.body);
-
-//     // var register = new registerModel(data);
-//     data.save(function (err, user) {
-//         if (err) {
-//             console.log(`save`, err);
-
-//             res.send(err);
-//         }
-//         console.log(`data`, user);
-
-//         res.json(user);
-//     });
-// }
-
-
-
-// router.post("/users", handler);
-
-
-
-// module.exports = router
