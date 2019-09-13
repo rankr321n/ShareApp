@@ -4,25 +4,25 @@ const saltRounds = 10;
 var registerSchema = new mongoose.Schema({
     email: {
         type: String,
-         required: false,
+        required: true,
         unique: true,
-        trim:true
+        trim: true
     },
     role: {
         type: String,
         default: "user",
-        trim:true
+        trim: true
     },
     password: {
         type: String,
-        required: false,
-        trim:true
+        required: true,
+        trim: true
     }
 
 });
 // hash user password before saving into database
-registerSchema.pre('save', function(next){
+registerSchema.pre('save', function (next) {
     this.password = bcrypt.hashSync(this.password, saltRounds);
     next();
-    });
+});
 module.exports = registerSchema

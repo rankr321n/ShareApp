@@ -10,6 +10,6 @@ export class RegisterService {
   url = "http://localhost:3000";
 
   registerUser(registrationData: any): Observable<any> {
-    return this.http.post(this.url + "/users", registrationData);
+    return this.http.post(this.url + "/register", registrationData);
   }
 }

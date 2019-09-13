@@ -44,10 +44,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.auth
-      .authenticate(
-        this.loginForm.value.username,
-        this.loginForm.value.password
-      )
+      .authenticate(this.loginForm.value)
       .pipe(first())
       .subscribe(
         result => this.router.navigate(["forgot"]),

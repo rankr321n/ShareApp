@@ -1,20 +1,28 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject, config } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
 @Injectable({
   providedIn: "root"
 })
 export class AuthorizeService {
-  constructor(private http: HttpClient) {}
-  url = "http://localhost:3000/";
+  private currentUserSubject: BehaviorSubject<any>;
+  public currentUser: Observable<any>;
 
-  authenticate(username: string, password: string): Observable<any> {
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<any>(
+      JSON.parse(localStorage.getItem("currentUser"))
+    );
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+  url = "http://localhost:3000";
+
+  authenticate(loginData: any): Observable<any> {
     return this.http
-      .post<{ token: string }>(this.url + "users", { username, password })
+      .post<{ data: string }>(this.url + "/login", loginData)
       .pipe(
         map(result => {
-          localStorage.setItem("access_token", result.token);
+          localStorage.setItem("access_token", JSON.stringify(result.data));
           return true;
         })
       );
