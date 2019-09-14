@@ -61,7 +61,7 @@ exports.signupPost = function(req, res, next) {
       }
     });
     var mailOptions = {
-      from: "creativeengineer321@gmail.com",
+      from: "no-reply@email-confirmation.com",
       to: user.email,
       subject: "Account Verification Token",
       text:
