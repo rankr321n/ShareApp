@@ -39,8 +39,6 @@ exports.signupPost = function(req, res, next) {
 
     const token = jwt.sign({ id: user._id }, "secret", { expiresIn: "1hr" });
 
-    console.log(user.email);
-
     registerModel.updateOne(
       { email: user.email },
       { $set: { token: token } },
