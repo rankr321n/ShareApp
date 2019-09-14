@@ -3,7 +3,8 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var cors = require("cors");
 const router = express.Router();
-
+const dotenv = require("dotenv");
+dotenv.config();
 var port = 3000;
 var authenticationControl = require("../auth/auth-server");
 // var registerationControl = require('../register/register-controler')

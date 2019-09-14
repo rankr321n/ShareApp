@@ -2,9 +2,8 @@ var jwt = require("jsonwebtoken");
 var nodemailer = require("nodemailer");
 var registerModel = require("./register-model");
 
-/**
- * POST /signup
- */
+require("dotenv").config({ path: "../../.env" });
+
 exports.signupPost = function(req, res, next) {
   registerModel.findOne(
     {
@@ -52,10 +51,10 @@ exports.signupPost = function(req, res, next) {
 
     // Send the email
     var transporter = nodemailer.createTransport({
-      service: "gmail",
+      service: "Sendgrid",
       auth: {
-        user: "creativeengineer321@gmail.com",
-        pass: "davnarela"
+        user: process.env.SENDGRID_USERNAME,
+        pass: process.env.SENDGRID_PASSWORD
       }
     });
     var mailOptions = {
@@ -70,17 +69,18 @@ exports.signupPost = function(req, res, next) {
         token +
         ".\n"
     };
-    transporter.sendMail(mailOptions, function(err, res) {
+    transporter.sendMail(mailOptions, function(err, info) {
       if (err) {
-        return res.status(500).send({
-          msg: err.message
-        });
+        // return res.status(500).send({
+        //   msg: err.message
+        // });
+        return;
       }
-      // console.log(info);
+      console.log(info);
 
-      res
-        .status(200)
-        .send("A verification email has been sent to " + user.email + ".");
+      // res
+      //   .status(200)
+      //   .send("A verification email has been sent to " + user.email + ".");
     });
   });
 };
