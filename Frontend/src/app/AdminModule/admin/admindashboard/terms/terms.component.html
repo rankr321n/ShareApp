@@ -2,12 +2,16 @@
 
 
 <div id="page-wrapper" class="clearfix">
+ 
+    <button class="btn btn-primary btn-block active " routerLink="../">
+      <span class="glyphicon glyphicon-chevron-left "></span>Back to dashboard
+    </button>
   <h1>Edit Terms and Conditions</h1>
   <p>Powered by the FileSystem APIs.</p>
   
   <form action="#" method="POST" id="file-form">
     <div class="field">
-      <input type="text" name="filename" id="filename" placeholder="Title" />
+              <input type="text" name="filename" id="filename" placeholder="Title" />
     </div>
     <div class="field">
       <textarea
@@ -17,8 +21,9 @@
       ></textarea>
     </div>
     <div class="field">
-      <button (click)="alert()" type="submit">Update</button>
-      <button  routerLink="../">Cancel</button>
+      <button class="btn btn-success active" type="submit">Update</button>
+      <button  class="btn btn-danger active" routerLink="../">Cancel</button>
+      
       <div id="messages"></div>
     </div>
   </form>
