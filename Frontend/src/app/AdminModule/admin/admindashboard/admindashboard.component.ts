@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
+import * as $ from 'jquery';
 @Component({
   selector: "app-admindashboard",
   templateUrl: "./admindashboard.component.html",
@@ -8,5 +8,9 @@ import { Component, OnInit } from "@angular/core";
 export class AdmindashboardComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    $('.btn-expand-collapse').click(function(e) {
+      $('.navbar-primary').toggleClass('collapsed');
+});
+  }
 }

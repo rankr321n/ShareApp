@@ -9,6 +9,9 @@ import { ForgotComponent } from "./auth/forgot/forgot.component";
 import { AuthorizeService } from "./auth/authorize.service";
 import { HttpClientModule } from "@angular/common/http";
 import { AdmindashboardComponent } from "./AdminModule/admin/admindashboard/admindashboard.component";
+import { HeaderComponent } from './AdminModule/admin/admindashboard/header/header.component';
+import { FooterComponent } from './AdminModule/admin/admindashboard/footer/footer.component';
+import { SidenavComponent } from './AdminModule/admin/admindashboard/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { AdmindashboardComponent } from "./AdminModule/admin/admindashboard/admi
     LoginComponent,
     RegisterComponent,
     ForgotComponent,
-    AdmindashboardComponent
+    AdmindashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
