@@ -12,6 +12,7 @@ import { AdmindashboardComponent } from "./AdminModule/admin/admindashboard/admi
 import { HeaderComponent } from './AdminModule/admin/admindashboard/header/header.component';
 import { FooterComponent } from './AdminModule/admin/admindashboard/footer/footer.component';
 import { SidenavComponent } from './AdminModule/admin/admindashboard/sidenav/sidenav.component';
+import { UserManagementComponent } from './AdminModule/admin/admindashboard/user-management/user-management.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SidenavComponent } from './AdminModule/admin/admindashboard/sidenav/sid
     AdmindashboardComponent,
     HeaderComponent,
     FooterComponent,
-    SidenavComponent
+    SidenavComponent,
+    UserManagementComponent
   ],
   imports: [
     BrowserModule,
