@@ -47,7 +47,7 @@ export class LoginComponent implements OnInit {
       .authenticate(this.loginForm.value)
       .pipe(first())
       .subscribe(
-        result => this.router.navigate(["forgot"]),
+        result => this.router.navigate(["/admin"]),
         err => (this.error = "Could not authenticate")
       );
   }

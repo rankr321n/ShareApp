@@ -5,9 +5,9 @@ var cors = require("cors");
 const router = express.Router();
 
 var port = 3000;
-var authenticationControl = require("../auth/auth-server");
+var authenticationControl = require("./auth/auth-server");
 // var registerationControl = require('../register/register-controler')
-var regcont = require("../register/register-confirm");
+var regcont = require("./register/register-confirm");
 
 mongoose.connect("mongodb://localhost:27017/shareApp", {
   useNewUrlParser: true,

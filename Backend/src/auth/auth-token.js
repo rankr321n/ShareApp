@@ -1,9 +1,7 @@
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(
-  "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"
-);
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const msg = {
-  to: "rankr@yopmail.com", //receiver's email
+  to: "randhirkumarshah@gmail.com", //receiver's email
   from: "test@example.com", //sender's email
   subject: "I think its working", //Subject
   text: "and finally  i can send email from sendgrid", //content
