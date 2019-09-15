@@ -13,6 +13,8 @@ import { HeaderComponent } from './AdminModule/admin/admindashboard/header/heade
 import { FooterComponent } from './AdminModule/admin/admindashboard/footer/footer.component';
 import { SidenavComponent } from './AdminModule/admin/admindashboard/sidenav/sidenav.component';
 import { UserManagementComponent } from './AdminModule/admin/admindashboard/user-management/user-management.component';
+import { TermsComponent } from './AdminModule/admin/admindashboard/terms/terms.component';
+import { ModalComponent } from './AdminModule/admin/admindashboard/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { UserManagementComponent } from './AdminModule/admin/admindashboard/user
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
-    UserManagementComponent
+    UserManagementComponent,
+    TermsComponent,
+    ModalComponent
   ],
   imports: [
     BrowserModule,

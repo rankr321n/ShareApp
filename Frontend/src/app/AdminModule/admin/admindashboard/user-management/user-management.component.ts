@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-management.component.css']
 })
 export class UserManagementComponent implements OnInit {
-
+back:boolean
   constructor() { }
 
   ngOnInit() {
+    this.back=true
   }
 
 }
