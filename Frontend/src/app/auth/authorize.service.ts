@@ -22,8 +22,11 @@ export class AuthorizeService {
       .post<{ data: string }>(this.url + "/login", loginData)
       .pipe(
         map(result => {
-          localStorage.setItem("access_token", JSON.stringify(result.data));
-          return true;
+          for (let item in result) {
+            localStorage.setItem("access_token", JSON.stringify(result.data));
+
+            return true;
+          }
         })
       );
   }

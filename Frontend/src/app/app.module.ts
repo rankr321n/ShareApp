@@ -9,12 +9,13 @@ import { ForgotComponent } from "./auth/forgot/forgot.component";
 import { AuthorizeService } from "./auth/authorize.service";
 import { HttpClientModule } from "@angular/common/http";
 import { AdmindashboardComponent } from "./AdminModule/admin/admindashboard/admindashboard.component";
-import { HeaderComponent } from './AdminModule/admin/admindashboard/header/header.component';
-import { FooterComponent } from './AdminModule/admin/admindashboard/footer/footer.component';
-import { SidenavComponent } from './AdminModule/admin/admindashboard/sidenav/sidenav.component';
-import { UserManagementComponent } from './AdminModule/admin/admindashboard/user-management/user-management.component';
-import { TermsComponent } from './AdminModule/admin/admindashboard/terms/terms.component';
-import { ModalComponent } from './AdminModule/admin/admindashboard/modal/modal.component';
+import { HeaderComponent } from "./AdminModule/admin/admindashboard/header/header.component";
+import { FooterComponent } from "./AdminModule/admin/admindashboard/footer/footer.component";
+import { SidenavComponent } from "./AdminModule/admin/admindashboard/sidenav/sidenav.component";
+import { UserManagementComponent } from "./AdminModule/admin/admindashboard/user-management/user-management.component";
+import { TermsComponent } from "./AdminModule/admin/admindashboard/terms/terms.component";
+import { ModalComponent } from "./AdminModule/admin/admindashboard/modal/modal.component";
+import { AuthGuard } from "./auth/auth.guard";
 
 @NgModule({
   declarations: [
@@ -37,7 +38,7 @@ import { ModalComponent } from './AdminModule/admin/admindashboard/modal/modal.c
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthorizeService],
+  providers: [AuthorizeService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

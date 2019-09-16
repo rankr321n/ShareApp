@@ -1,21 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { AdminService } from '../admin.service';
+import { Component, OnInit } from "@angular/core";
+import { AdminService } from "../admin.service";
+import { AuthorizeService } from "src/app/auth/authorize.service";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-username:any
-  constructor(private admin:AdminService) { }
+  username: any;
+  constructor(private admin: AdminService, private auth: AuthorizeService) {}
 
-  ngOnInit() {
-    this.admin.fetchLoggedInUser().subscribe(data=>{
-this.username=data.email
-console.log(this.username);
-
-    })
-  }
-
+  ngOnInit() {}
 }

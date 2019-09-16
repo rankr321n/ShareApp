@@ -13,6 +13,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
   error: string;
+  role: any;
   constructor(
     private fb: FormBuilder,
     private auth: AuthorizeService,
@@ -31,7 +32,8 @@ export class LoginComponent implements OnInit {
           )
         ]
       ],
-      password: ["", [Validators.required, Validators.minLength(8)]]
+      password: ["", [Validators.required, Validators.minLength(8)]],
+      role: ["user"]
     });
   }
 
