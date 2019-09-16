@@ -24,7 +24,7 @@ router.use(
     extended: false
   })
 );
-// var mailcontrol = require("./auth-token");
+
 app.use("/register", regcont.signupPost);
 
 app.use("/login", authenticationControl.authenticate);

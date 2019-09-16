@@ -6,62 +6,39 @@ module.exports = {
   authenticate: function(req, res, next) {
     registerModel.findOne(
       {
-        email: req.body.email,
-        isVerified: true,
-        role: req.body.role
+        email: req.body.email
       },
+
       async function(err, user) {
-        if (err) {
-          next(err);
-        } else {
+        if (!user)
+          return (
+            err, res.status(400).send({ msg: "We were unable to find a user." })
+          );
+        else {
           const isMatch = await bcrypt.compare(
             req.body.password,
             user.password
           );
-          const role = req.body.role;
-          if ((isMatch, role)) {
-            const token = jwt.sign(
-              {
-                id: user._id,
-                role: user.role
-              },
-              "secretKey",
-              { issuer: "Randhir", expiresIn: "1m" }
-            );
-            res.json({
-              status: "success",
-              message: "user found!!!",
 
-              data: {
-                token: token
+          if (isMatch && !user.isVerified) {
+            const payload = { id: user.id, role: user.role };
+            const secretKey = "!wRaPcoDe";
+            const options = { issuer: "Randhir", expiresIn: "1m" };
+            const logintoken = jwt.sign(payload, secretKey, options);
+
+            registerModel.updateOne(
+              { email: user.email },
+              { $set: { logintoken: logintoken } },
+              err => {
+                if (err) {
+                  return err;
+                }
               }
-            });
-          } else {
-            res.json({
-              status: "error",
-              message: "Invalid email/password!!!",
-              data: null
-            });
+            );
           }
+          res.status(401).send({ msg: "User is not verified" });
         }
       }
     );
   }
 };
-
-// var router = express.Router();
-// var handler = function (req, res) {
-//     registerModel
-//         .find({
-//             email: req.body.email
-//         })
-//         .then(function (users) {
-//             return res.send(users);
-//         })
-//         .catch((e) => {
-//             console.log(e);
-//         })
-// }
-// router.post("/users", handler);
-
-// module.exports = router

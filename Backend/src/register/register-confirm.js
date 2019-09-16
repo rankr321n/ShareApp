@@ -37,49 +37,17 @@ exports.signupPost = function(req, res, next) {
 
     //create json webtoken
 
-    const token = jwt.sign({ id: user._id }, "secret", { expiresIn: "1hr" });
+    const registertoken = jwt.sign({ id: user._id }, "secret", { expiresIn: "1hr" });
 
     registerModel.updateOne(
       { email: user.email },
-      { $set: { token: token } },
+      { $set: { registertoken: registertoken } },
       err => {
         if (err) {
           res.send(err);
         }
-        mailsend.mailsender(user.email, token);
+        mailsend.mailsender(user.email, registertoken);
       }
     );
   });
 };
-//     // Send the email
-//     var transporter = nodemailer.createTransport({
-//       service: "gmail",
-//       auth: {
-//         user: "username",
-//         pass: "pass"
-//       }
-//     });
-//     var mailOptions = {
-//       from: "no-reply@email-confirmation.com",
-//       to: user.email,
-//       subject: "Account Verification Token",
-//       text:
-//         "Hello,\n\n" +
-//         "Please verify your account by clicking the link: \nhttp://" +
-//         // req.headers.host +
-//         "/confirmation/" +
-//         token +
-//         ".\n"
-//     };
-//     transporter.sendMail(mailOptions, function(err, res) {
-//       if (err) {
-//         return err;
-//       }
-//       console.log(res);
-
-//       res
-//         .status(200)
-//         .send("A verification email has been sent to " + user.email + ".");
-//     });
-//   });
-// };
