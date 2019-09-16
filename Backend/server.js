@@ -3,11 +3,12 @@ var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var cors = require("cors");
 const router = express.Router();
+require("dotenv").config();
 
 var port = 3000;
-var authenticationControl = require("./auth/auth-server");
-// var registerationControl = require('../register/register-controler')
-var regcont = require("./register/register-confirm");
+var authenticationControl = require("./src/auth/auth-server");
+
+var regcont = require("./src/register/register-confirm");
 
 mongoose.connect("mongodb://localhost:27017/shareApp", {
   useNewUrlParser: true,
@@ -23,9 +24,8 @@ router.use(
     extended: false
   })
 );
+// var mailcontrol = require("./auth-token");
 app.use("/register", regcont.signupPost);
-
-
 
 app.use("/login", authenticationControl.authenticate);
 app.listen(port, function() {

@@ -1,3 +1,5 @@
+// Working Node mailer
+
 // Send the email
 const nodemailer = require("nodemailer");
 var transporter = nodemailer.createTransport({
