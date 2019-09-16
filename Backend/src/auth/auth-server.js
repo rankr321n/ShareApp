@@ -12,7 +12,7 @@ module.exports = {
       async function(err, user) {
         if (!user)
           return (
-            err, res.status(400).send({ msg: "We were unable to find a user." })
+            err, res.status(400).send({ msg: "User is not registered with us" })
           );
         else {
           const isMatch = await bcrypt.compare(
