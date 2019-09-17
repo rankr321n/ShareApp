@@ -11,8 +11,6 @@ export class AdminService {
   constructor(private http: HttpClient) {}
 
   updateTerms(data: any): Observable<any> {
-    console.log(data);
-
     return this.http.post(this.url + "terms", data);
   }
   getTerms(): Observable<any> {

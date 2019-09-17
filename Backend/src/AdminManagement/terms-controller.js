@@ -4,8 +4,8 @@ exports.terms = function(req, res) {
   var data = req.body;
 
   var terms = new termsModel(data);
-  terms
-    .save(data)
+  termsModel
+    .update(data)
     .then(function() {
       res.status(200).json({ msg: "Terms& Conditions Updated" });
     })

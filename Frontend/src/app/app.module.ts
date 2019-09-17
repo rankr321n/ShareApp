@@ -16,6 +16,7 @@ import { UserManagementComponent } from "./AdminModule/admin/admindashboard/user
 import { TermsComponent } from "./AdminModule/admin/admindashboard/terms/terms.component";
 import { ModalComponent } from "./AdminModule/admin/admindashboard/modal/modal.component";
 import { AuthGuard } from "./auth/auth.guard";
+import { VerifyComponent } from "./auth/verify/verify.component";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { AuthGuard } from "./auth/auth.guard";
     SidenavComponent,
     UserManagementComponent,
     TermsComponent,
-    ModalComponent
+    ModalComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,

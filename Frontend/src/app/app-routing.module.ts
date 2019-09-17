@@ -8,6 +8,8 @@ import { UserManagementComponent } from "./AdminModule/admin/admindashboard/user
 import { TermsComponent } from "./AdminModule/admin/admindashboard/terms/terms.component";
 import { ModalComponent } from "./AdminModule/admin/admindashboard/modal/modal.component";
 import { AuthGuard } from "./auth/auth.guard";
+import { componentFactoryName } from "@angular/compiler";
+import { VerifyComponent } from "./auth/verify/verify.component";
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -20,7 +22,8 @@ const routes: Routes = [
   },
   { path: "admin/manage-user", component: UserManagementComponent },
   { path: "admin/terms", component: TermsComponent },
-  { path: "alert", component: ModalComponent }
+  { path: "alert", component: ModalComponent },
+  { path: "verify/:token", component: VerifyComponent }
 ];
 
 @NgModule({
