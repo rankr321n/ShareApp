@@ -11,8 +11,8 @@ import { typeWithParameters } from "@angular/compiler/src/render3/util";
 })
 export class TermsComponent implements OnInit {
   updateForm: FormGroup;
-  terms = "";
-  aboutus = "";
+  terms: any = {};
+  aboutus: any = {};
   constructor(
     private router: Router,
     private fb: FormBuilder,
@@ -24,14 +24,16 @@ export class TermsComponent implements OnInit {
       terms: ["", Validators.required],
       aboutus: [" ", Validators.required]
     });
+    this.admin.getTerms().subscribe(data => {
+      // console.log(data);
+      for (let item of data) {
+        this.terms = item.terms;
+        this.aboutus = item.aboutus;
+      }
+    });
   }
 
   update() {
-    this.admin.updateTerms(this.updateForm.value).subscribe(data => {
-      console.log(data);
-
-      this.terms = data.terms;
-      this.aboutus = data.aboutus;
-    });
+    this.admin.updateTerms(this.updateForm.value).subscribe();
   }
 }

@@ -10,7 +10,7 @@ var authenticationControl = require("./src/auth/auth-server");
 
 var regcont = require("./src/register/register-confirm");
 var termController = require("./src/AdminManagement/terms-controller");
-
+var terms = require("./src/AdminManagement/get-terms");
 mongoose.connect("mongodb://localhost:27017/shareApp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -29,7 +29,7 @@ router.use(
 app.use("/register", regcont.signupPost);
 
 app.use("/terms", termController.terms);
-
+app.use("/termsandconditions", terms.getTerms);
 app.use("/login", authenticationControl.authenticate);
 app.listen(port, function() {
   console.log("Server started on port 3000");
