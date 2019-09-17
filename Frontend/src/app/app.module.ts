@@ -35,7 +35,7 @@ import { AuthGuard } from "./auth/auth.guard";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: "never" }),
     HttpClientModule
   ],
   providers: [AuthorizeService, AuthGuard],

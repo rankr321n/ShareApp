@@ -1,42 +1,47 @@
 <app-header></app-header>
 
-
 <div id="page-wrapper" class="clearfix">
- 
-    <button class="btn btn-primary btn-block active " routerLink="../">
-      <span class="glyphicon glyphicon-chevron-left "></span>Back to dashboard
-    </button>
+  <button class="btn  btn-block active " routerLink="../">
+    <span class="glyphicon glyphicon-chevron-left "></span>Back to dashboard
+  </button>
   <h1>Edit Terms and Conditions</h1>
   <p>Powered by the FileSystem APIs.</p>
-  
-  <form action="#" method="POST" id="file-form">
-    <div class="field">
-              <input type="text" name="filename" id="filename" placeholder="Title" />
-    </div>
+
+  <form [formGroup]="updateForm" action="#" method="POST" id="file-form">
+    <!-- <div class="field">
+      <input type="text" name="filename" id="filename" placeholder="Title" />
+    </div> -->
     <div class="field">
       <textarea
-        name="content"
+        class="form-control"
+        [(ngModel)]="terms"
+        formControlName="terms"
         id="content"
         placeholder="Type your content here..."
       ></textarea>
     </div>
+
+    <div id="file-form">
+      <h1>About us</h1>
+      <textarea
+        class="form-control"
+        formControlName="aboutus"
+        [(ngModel)]="aboutus"
+        id="content"
+        placeholder="Type your content here..."
+      ></textarea>
+      <!-- <ul id="file-list"></ul> -->
+    </div>
     <div class="field">
-      <button class="btn btn-success active" type="submit">Update</button>
-      <button  class="btn btn-danger active" routerLink="../">Cancel</button>
-      
+      <button class="btn btn-primary active" (click)="update()" type="submit">
+        Update
+      </button>
+      <button class="btn btn-danger active" routerLink="../">
+        Cancel
+      </button>
+
       <div id="messages"></div>
     </div>
   </form>
-
-  <div id="files">
-    <h1>About us</h1>
-    <textarea
-        name="content"
-        id="content"
-        placeholder="Type your content here..."
-      ></textarea>
-    <!-- <ul id="file-list"></ul> -->
-    
-  </div>
 </div>
 <app-footer></app-footer>

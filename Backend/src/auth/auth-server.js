@@ -35,8 +35,9 @@ module.exports = {
                 }
               }
             );
+            res.status(401).send({ msg: "User is not verified" });
           }
-          res.status(401).send({ msg: "User is not verified" });
+          res.status(200).send({ msg: "verified" });
         }
       }
     );

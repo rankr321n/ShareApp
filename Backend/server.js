@@ -9,6 +9,7 @@ var port = 3000;
 var authenticationControl = require("./src/auth/auth-server");
 
 var regcont = require("./src/register/register-confirm");
+var termController = require("./src/AdminManagement/terms-controller");
 
 mongoose.connect("mongodb://localhost:27017/shareApp", {
   useNewUrlParser: true,
@@ -26,6 +27,8 @@ router.use(
 );
 
 app.use("/register", regcont.signupPost);
+
+app.use("/terms", termController.terms);
 
 app.use("/login", authenticationControl.authenticate);
 app.listen(port, function() {

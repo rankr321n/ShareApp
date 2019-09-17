@@ -1,11 +1,9 @@
 var jwt = require("jsonwebtoken");
-var express = require("express");
-var app = express();
-const router = express.Router();
+
 var registerModel = require("./register-model");
 var mailsend = require("../../auth-token");
 
-exports.signupPost = function(req, res, next) {
+exports.signupPost = function(req, res) {
   registerModel.findOne(
     {
       email: req.body.email
@@ -37,7 +35,9 @@ exports.signupPost = function(req, res, next) {
 
     //create json webtoken
 
-    const registertoken = jwt.sign({ id: user._id }, "secret", { expiresIn: "1hr" });
+    const registertoken = jwt.sign({ id: user._id }, "secret", {
+      expiresIn: "1hr"
+    });
 
     registerModel.updateOne(
       { email: user.email },
@@ -47,6 +47,7 @@ exports.signupPost = function(req, res, next) {
           res.send(err);
         }
         mailsend.mailsender(user.email, registertoken);
+        res.status.json({ msg: "Email sent" });
       }
     );
   });

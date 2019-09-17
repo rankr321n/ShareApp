@@ -1,17 +1,18 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class AdminService {
-user:any
-url="http://localhost/3000/users"
-  constructor(private http:HttpClient) { }
+  user: any;
+  url = "http://localhost:3000/terms";
+  constructor(private http: HttpClient) {}
 
-  fetchLoggedInUser():Observable<any>{
-    return this.http.post(this.url,{})
+  updateTerms(data: any): Observable<any> {
+    console.log(data);
+
+    return this.http.post(this.url, data);
   }
-
 }

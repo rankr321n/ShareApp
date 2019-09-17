@@ -8,7 +8,7 @@ exports.mailsender = function(email, token) {
     to: email,
     from: "welcome@shareapp.com",
     subject: "Please verify your account to continue",
-    templateId:"d-b0c42dc916994db28f4319bbe99dddb2"
+    templateId: "d-b0c42dc916994db28f4319bbe99dddb2"
     // text:
     //   "Hello,\n\n" +
     //   "Please verify your account by clicking the link: \nhttp://" +
@@ -17,6 +17,4 @@ exports.mailsender = function(email, token) {
     // // html: "<strong>TOKEN</strong>"
   };
   sgMail.send(msg);
-
-  
 };
