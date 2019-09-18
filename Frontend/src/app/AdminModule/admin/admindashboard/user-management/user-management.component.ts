@@ -1,6 +1,8 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 
 import { AdminService } from "../admin.service";
+import { BehaviorSubject } from 'rxjs';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: "app-user-management",
@@ -8,33 +10,30 @@ import { AdminService } from "../admin.service";
   styleUrls: ["./user-management.component.css"]
 })
 export class UserManagementComponent implements OnInit {
-  value: any;
-  users = [];
-  usertoBlock: any;
-  usertoUnblock: any;
-  userBlocked = false;
+  
+  userStatus=false
+  users:any=[]
   constructor(private user: AdminService) {}
 
   ngOnInit() {
-    this.user.manageUsers().subscribe(data => {
-      this.value = data;
+    this.user.manageUsers().subscribe( data=> {
+      this.users=data
+    });
+    
+  }
 
-      for (let i = 0; i <= this.value.length; i++) {}
+  blockUser(email:any) {
+    this.user.blockUserAccess( {email:email} ).subscribe(res => {
+      console.log( res);
+      this.userStatus=true
+      // console.log("user to block", this.usertoBlock);
     });
   }
 
-  blockUser() {
-    this.user.blockUserAccess({ email: this.usertoBlock }).subscribe(res => {
-      console.log("Response", res);
-      this.userBlocked = true;
-      console.log("user to block", this.usertoBlock);
-    });
-  }
-
-  unblockUser() {
-    this.user.unblockUserAccess({ email: this.usertoBlock }).subscribe(res => {
+  unblockUser(email:any) {
+    this.user.unblockUserAccess({ email:email}).subscribe(res => {
       console.log(res);
-      console.log("user to unblock", this.usertoUnblock);
+      // console.log("user to unblock", this.usertoUnblock);
     });
   }
 }

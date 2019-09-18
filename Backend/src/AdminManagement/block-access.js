@@ -1,7 +1,7 @@
 var User = require("../register/register-model");
-exports.blockUser = function(req, res) {
+exports.blockUser =async function(req, res) {
   data = req.body.email;
-  console.log("data", data);
+  // console.log("data", data);
   // User.findOne({ email: data }, function(err, user) {
   //   if (!user.isVerified) {
   //     res.json({ msg: "user is already Blocked" });
