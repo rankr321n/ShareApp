@@ -19,10 +19,13 @@ export class AuthorizeService {
 
   authenticate(loginData: any): Observable<any> {
     return this.http
-      .post<{ data: string }>(this.url + "/login", loginData)
+      .post<{ logintoken: string }>(this.url + "/login", loginData)
       .pipe(
         map(result => {
-          localStorage.setItem("access_token", JSON.stringify(result));
+          localStorage.setItem(
+            "access_token",
+            JSON.stringify(result.logintoken)
+          );
 
           return true;
         })

@@ -3,7 +3,7 @@ var termsModel = require("./terms-model");
 exports.terms = function(req, res) {
   var data = req.body;
 
-  var terms = new termsModel(data);
+  // var terms = new termsModel(data);
   termsModel
     .update(data)
     .then(function() {

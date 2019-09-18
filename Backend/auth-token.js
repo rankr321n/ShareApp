@@ -8,7 +8,8 @@ exports.mailsender = function(email, token) {
     to: email,
     from: "welcome@shareapp.com",
     subject: "Please verify your account to continue",
-    templateId: "d-b0c42dc916994db28f4319bbe99dddb2"
+    templateId: "d-b0c42dc916994db28f4319bbe99dddb2",
+    dynamic_template_data: { token }
     // text:
     //   "Hello,\n\n" +
     //   "Please verify your account by clicking the link: \nhttp://" +

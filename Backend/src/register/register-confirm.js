@@ -21,7 +21,8 @@ exports.signupPost = function(req, res) {
 
   let user = new registerModel({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    role: req.body.role
   });
 
   user.save(function(err) {
@@ -30,7 +31,7 @@ exports.signupPost = function(req, res) {
     } else
       res.status(200).json({
         status: "success",
-        message: "User added successfully!!!"
+        message: "User added successfully and verification mail sent"
       });
 
     //create json webtoken
@@ -47,7 +48,6 @@ exports.signupPost = function(req, res) {
           res.send(err);
         }
         mailsend.mailsender(user.email, registertoken);
-        res.status.json({ msg: "Email sent" });
       }
     );
   });

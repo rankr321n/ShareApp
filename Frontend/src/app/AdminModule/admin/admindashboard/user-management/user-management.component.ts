@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { AuthorizeService } from "src/app/auth/authorize.service";
+
+import { AdminService } from "../admin.service";
 
 @Component({
   selector: "app-user-management",
@@ -8,11 +9,19 @@ import { AuthorizeService } from "src/app/auth/authorize.service";
 })
 export class UserManagementComponent implements OnInit {
   value: any;
-  constructor(private user: AuthorizeService) {}
+  usertoBlock: any;
+  constructor(private user: AdminService) {}
 
   ngOnInit() {
-    this.user.authenticate(this.value).subscribe(data => {
-      console.log(data);
+    this.user.manageUsers().subscribe(data => {
+      this.value = data;
+      for (let item of this.value) {
+        this.usertoBlock = item.email;
+      }
     });
+  }
+
+  blockUser() {
+    this.user.blockUserAccess(this.usertoBlock).subscribe();
   }
 }

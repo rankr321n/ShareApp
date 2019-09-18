@@ -9,8 +9,8 @@ var registerSchema = new mongoose.Schema({
     trim: true
   },
   role: {
-    type: String,
-      },
+    type: String
+  },
   password: {
     type: String,
     required: true,
@@ -18,7 +18,7 @@ var registerSchema = new mongoose.Schema({
   },
   isVerified: {
     type: Boolean,
-     default: false
+    default: false
   },
   createdAt: {
     type: Date,
@@ -27,7 +27,7 @@ var registerSchema = new mongoose.Schema({
   },
 
   logintoken: { type: String },
-  registertoken:{type:String}
+  registertoken: { type: String }
 });
 // hash user password before saving into database
 registerSchema.pre("save", function(next) {

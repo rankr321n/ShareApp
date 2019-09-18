@@ -16,4 +16,11 @@ export class AdminService {
   getTerms(): Observable<any> {
     return this.http.get(this.url + "termsandconditions");
   }
+
+  manageUsers(): Observable<any> {
+    return this.http.get(this.url + "getuser");
+  }
+  blockUserAccess(user: any): Observable<any> {
+    return this.http.post(this.url + "block", user);
+  }
 }
