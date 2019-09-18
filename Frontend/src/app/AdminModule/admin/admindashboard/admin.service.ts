@@ -23,4 +23,8 @@ export class AdminService {
   blockUserAccess(user: any): Observable<any> {
     return this.http.post(this.url + "/block", user);
   }
+
+  unblockUserAccess(user: any): Observable<any> {
+    return this.http.post(this.url + "/unblock", user);
+  }
 }

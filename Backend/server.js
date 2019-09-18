@@ -13,7 +13,7 @@ var regcont = require("./src/register/register-confirm");
 var termController = require("./src/AdminManagement/terms-controller");
 var terms = require("./src/AdminManagement/get-terms");
 var blockUserControl = require("./src/AdminManagement/block-access");
-
+var unblockControl = require("./src/AdminManagement/unblock-access");
 mongoose.connect("mongodb://localhost:27017/shareApp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -35,6 +35,8 @@ app.use("/terms", termController.terms);
 app.use("/termsandconditions", terms.getTerms);
 app.use("/login", authenticationControl.authenticate);
 app.use("/block", blockUserControl.blockUser);
+app.use("/unblock", unblockControl.unblockUser);
+
 app.listen(port, function() {
   console.log("Server started on port 3000");
 });
