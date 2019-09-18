@@ -7,20 +7,20 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AdminService {
   user: any;
-  url = "http://localhost:3000/";
+  url = "http://localhost:3000";
   constructor(private http: HttpClient) {}
 
   updateTerms(data: any): Observable<any> {
-    return this.http.post(this.url + "terms", data);
+    return this.http.post(this.url + "/terms", data);
   }
   getTerms(): Observable<any> {
-    return this.http.get(this.url + "termsandconditions");
+    return this.http.get(this.url + "/termsandconditions");
   }
 
   manageUsers(): Observable<any> {
-    return this.http.get(this.url + "getuser");
+    return this.http.get(this.url + "/getuser");
   }
   blockUserAccess(user: any): Observable<any> {
-    return this.http.post(this.url + "block", user);
+    return this.http.post(this.url + "/block", user);
   }
 }

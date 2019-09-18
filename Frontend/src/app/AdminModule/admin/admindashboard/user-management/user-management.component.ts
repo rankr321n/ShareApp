@@ -22,6 +22,8 @@ export class UserManagementComponent implements OnInit {
   }
 
   blockUser() {
-    this.user.blockUserAccess(this.usertoBlock).subscribe();
+    console.log(this.usertoBlock);
+
+    this.user.blockUserAccess({ email: this.usertoBlock }).subscribe();
   }
 }
