@@ -19,29 +19,22 @@ export class UserManagementComponent implements OnInit {
     this.user.manageUsers().subscribe(data => {
       this.value = data;
 
-      for (let item of this.value) {
-        // console.log(item.email);
-        this.users.push(item.email);
-      }
+      for (let i = 0; i <= this.value.length; i++) {}
     });
   }
 
   blockUser() {
-    console.log("user to block");
-
     this.user.blockUserAccess({ email: this.usertoBlock }).subscribe(res => {
       console.log("Response", res);
       this.userBlocked = true;
+      console.log("user to block", this.usertoBlock);
     });
   }
 
   unblockUser() {
-    console.log("user to unblock");
-
-    this.user
-      .unblockUserAccess({ email: this.usertoUnblock })
-      .subscribe(res => {
-        console.log(res);
-      });
+    this.user.unblockUserAccess({ email: this.usertoBlock }).subscribe(res => {
+      console.log(res);
+      console.log("user to unblock", this.usertoUnblock);
+    });
   }
 }
