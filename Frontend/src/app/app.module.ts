@@ -17,6 +17,12 @@ import { TermsComponent } from "./AdminModule/admin/admindashboard/terms/terms.c
 import { ModalComponent } from "./AdminModule/admin/admindashboard/modal/modal.component";
 import { AuthGuard } from "./auth/auth.guard";
 import { VerifyComponent } from "./auth/verify/verify.component";
+import { ProfileComponent } from "./UserModule/ShareModule/profile.component";
+import { UserSidenavComponent } from "./UserModule/user-sidenav/user-sidenav.component";
+import { AnalyticsComponent } from "./AdminModule/admin/admindashboard/analytics/analytics.component";
+import { HomeComponent } from './UserModule/FriendModule/home/home.component';
+import { FriendlistComponent } from './UserModule/FriendModule/friendlist/friendlist.component';
+import { AddfriendComponent } from './UserModule/FriendModule/addfriend/addfriend.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,11 @@ import { VerifyComponent } from "./auth/verify/verify.component";
     UserManagementComponent,
     TermsComponent,
     ModalComponent,
-    VerifyComponent
+    VerifyComponent,
+    ProfileComponent,
+    UserSidenavComponent,
+    AnalyticsComponent,
+    HomeComponent, FriendlistComponent, AddfriendComponent
   ],
   imports: [
     BrowserModule,
@@ -43,4 +53,4 @@ import { VerifyComponent } from "./auth/verify/verify.component";
   providers: [AuthorizeService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

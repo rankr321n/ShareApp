@@ -6,11 +6,11 @@ import * as $ from 'jquery';
   styleUrls: ["./admindashboard.component.css"]
 })
 export class AdmindashboardComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    $('.btn-expand-collapse').click(function(e) {
+    $('.btn-expand-collapse').click(function (e) {
       $('.navbar-primary').toggleClass('collapsed');
-});
+    });
   }
 }

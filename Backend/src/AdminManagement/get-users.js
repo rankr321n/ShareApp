@@ -7,7 +7,7 @@ exports.getUser = function(req, res) {
       return res
         .send(data)
         .status(200)
-        .json({ msg: "Terms" });
+        .json({ msg: "Users" });
     })
     .catch(function(e) {
       return e;
