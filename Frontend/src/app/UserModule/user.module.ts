@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FriendlistComponent } from './FriendModule/friendlist/friendlist.component';
 import { AddfriendComponent } from './FriendModule/addfriend/addfriend.component';
 import { HomeComponent } from './FriendModule/home/home.component';
-import { UpdateProfileComponent } from './FriendModule/update-profile/update-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 
 

@@ -1,8 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 
 import { AdminService } from "../admin.service";
-import { BehaviorSubject } from "rxjs";
-import { ThrowStmt } from "@angular/compiler";
 
 @Component({
   selector: "app-user-management",
@@ -12,27 +10,45 @@ import { ThrowStmt } from "@angular/compiler";
 export class UserManagementComponent implements OnInit {
   users: any = [];
   response: any;
-  constructor(private user: AdminService) {}
+  alert: string;
+  managebutton: any
+  constructor(private user: AdminService) { }
 
   ngOnInit() {
+    window.setTimeout(function () {
+      $(".alert-danger").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
+      });
+      $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
+        $(this).remove();
+      });
+    }, 2000);
+
     this.user.manageUsers().subscribe(data => {
       this.users = data;
+
+
     });
   }
 
   blockUser(email: any) {
     this.user.blockUserAccess({ email: email }).subscribe(res => {
-      console.log(res.msg);
+
       this.response = res.msg;
-      window.alert(res.msg);
+
+      this.alert = "true";
+
+      // window.alert(res.msg);
     });
   }
 
   unblockUser(email: any) {
     this.user.unblockUserAccess({ email: email }).subscribe(res => {
-      console.log(res);
+
       this.response = res.msg;
-      window.alert(res.msg);
+
+      this.alert = "false";
+
     });
   }
 }

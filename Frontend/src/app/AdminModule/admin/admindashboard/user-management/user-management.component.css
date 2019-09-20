@@ -1,112 +1,187 @@
-
-.container {
-    
-  width: 100%;
-  height: 100%;
-  /* background-color: #d4d3d3; */
-  /* padding: 20px; */
-  
+.row.heading h2 {
+  color: #fff;
+  font-size: 52.52px;
+  line-height: 95px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 40px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
 }
-/* 
-.listWrap {
-  
-  height: 800px;
-  width: 1000px;
-  
-} */
 
-.list {
-  
-  list-style: none;
+ul {
   margin: 0;
   padding: 0;
-  display: table;
-  white-space: nowrap;
+  list-style: none;
+}
+
+.heading.heading-icon {
+  display: block;
+}
+
+.padding-lg {
+  display: block;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.practice-area.padding-lg {
+  padding-bottom: 55px;
+  padding-top: 55px;
+}
+
+.practice-area .inner {
+  border: 1px solid #999999;
+  text-align: center;
+  margin-bottom: 28px;
+  padding: 40px 25px;
+}
+
+/* .our-webcoderskull .cnt-block:hover {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border: 0;
+} */
+
+.practice-area .inner h3 {
+  color: #3c3c3c;
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 0;
+}
+
+.practice-area .inner p {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+}
+
+.practice-area .inner img {
+  display: inline-block;
+
+}
+
+
+.our-webcoderskull {
+  background: url("http://cdn.shopify.com/s/files/1/0250/5422/files/ios_linen_texture___black_by_vegardhw-d3ddll5_copy.jpg?2614&quot") no-repeat center top / cover;
+
+}
+
+.our-webcoderskull .cnt-block {
+  float: left;
   width: 100%;
-  
-}
+  background: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  border: 2px solid #d5d5d5;
+  margin: 0 0 28px;
 
-.list li {
-  
-  background-color: #f0f0f0;
-  display: table-row;
-  color: #5c5c5c;
 
-}
-
-.list li:nth-child(odd) {
-  
-  background-color: #f2f2f2;
-  display: table-row;
-  font-size: 9pt;
-  color: #5c5c5c;
 
 }
 
-.list li:nth-child(odd):hover {
-  
-  background-color: #dadada;
-
+.our-webcoderskull .cnt-block figure {
+  width: 148px;
+  height: 148px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-bottom: 15px;
 }
 
-.list li:nth-child(even) {
-  
-  background-color: #e8e8e8;
-  display: table-row;
-  font-size: 9pt;
-  color: #5c5c5c;
-
+.our-webcoderskull .cnt-block img {
+  width: 148px;
+  height: 148px;
+  border-radius: 100%;
 }
 
-.list li:nth-child(even):hover {
-  
-  background-color: #dadada;
-
-}
-
-.list li:nth-child(1) span:first-child {
-  
-  border-top-left-radius: 6px;
-  
-}
-
-.list li:nth-child(1) span:last-child {
-  
-  border-top-right-radius: 6px;
-  
-}
-
-
-.list li:nth-child(1) {
-  
-  background-color: #201c2b;
+.our-webcoderskull .cnt-block h3 {
+  color: #2a2a2a;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0;
   text-transform: uppercase;
-  font-size: 8pt;
-  font-weight: bold;
-  color: #b8b5c0;
-
-  
-}
-.list li:nth-child(1) span {
-  
-  border-bottom: 2px solid #7d5bbe;
-  padding: 14px;
-  
 }
 
-.list span {
-  
-  text-align: left;
-  display: table-cell;
-  padding: 6px;
-  vertical-align: middle;
-  
+.our-webcoderskull .cnt-block h3 a {
+  text-decoration: none;
+  color: #2a2a2a;
 }
 
-
-.table-responsive{
-  margin: 5rem 0px
+.our-webcoderskull .cnt-block h3 a:hover {
+  color: #337ab7;
 }
 
+.our-webcoderskull .cnt-block p {
+  color: #2a2a2a;
+  font-size: 13px;
+  line-height: 35px;
+  font-weight: 400;
+}
 
+.our-webcoderskull .cnt-block .follow-us {
+  margin: 20px 0 0;
+}
 
+.our-webcoderskull .cnt-block .follow-us li {
+  display: inline-block;
+  width: auto;
+  margin: 0 5px;
+}
+
+.our-webcoderskull .cnt-block .follow-us li .fa {
+  font-size: 24px;
+  color: #767676;
+}
+
+.our-webcoderskull .cnt-block .follow-us li .fa:hover {
+  color: #025a8e;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  perspective: 1000px;
+}
+
+.button-flipper {
+  transition: .8s cubic-bezier(.775, .07, .575, .995);
+  transform-style: preserve-3d;
+  position: absolute;
+
+  /* &:hover {
+    transform: rotateX(180deg); */
+}
+
+.front-button {
+  cursor: pointer;
+  width: 260px;
+  height: 60px;
+  background-color: #D35400;
+  border: none;
+  font-size: 2em;
+  color: #fff;
+  backface-visibility: hidden;
+  z-index: 2;
+  transform: rotateX(0deg);
+  position: absolute;
+  box-shadow: 0px 8px 12px #ccc;
+}
+
+.back-button {
+  cursor: pointer;
+  width: 260px;
+  height: 60px;
+  background-color: #26C281;
+  border: none;
+  font-size: 2em;
+  color: #fff;
+  backface-visibility: hidden;
+  transform: rotateX(-180deg);
+  position: relative;
+  box-shadow: 0px 8px 12px #ccc;
+}
+
+/*  */
