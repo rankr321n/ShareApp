@@ -1,47 +1,32 @@
-<app-header></app-header>
-
 <div id="page-wrapper" class="clearfix">
-  <button class="btn  btn-block active " routerLink="../">
+    <button class="btn  btn-block active " routerLink="../">
     <span class="glyphicon glyphicon-chevron-left "></span>Back to dashboard
   </button>
-  <h1>Edit Terms and Conditions</h1>
-  <p>Powered by the FileSystem APIs.</p>
+    <h1>Edit Terms and Conditions</h1>
+    <p>Powered by the FileSystem APIs.</p>
 
-  <form [formGroup]="updateForm" action="#" method="POST" id="file-form">
-    <!-- <div class="field">
+    <form [formGroup]="updateForm" action="#" method="POST" id="file-form">
+        <!-- <div class="field">
       <input type="text" name="filename" id="filename" placeholder="Title" />
     </div> -->
-    <div class="field">
-      <textarea
-        class="form-control"
-        [(ngModel)]="this.terms"
-        formControlName="terms"
-        id="content"
-        placeholder="Type your content here..."
-      ></textarea>
-    </div>
+        <div class="field">
+            <textarea class="form-control" [(ngModel)]="this.terms" formControlName="terms" id="content" placeholder="Type your content here..."></textarea>
+        </div>
 
-    <div id="file-form">
-      <h1>About us</h1>
-      <textarea
-        class="form-control"
-        formControlName="aboutus"
-        [(ngModel)]="this.aboutus"
-        id="content"
-        placeholder="Type your content here..."
-      ></textarea>
-      <!-- <ul id="file-list"></ul> -->
-    </div>
-    <div class="field">
-      <button class="btn btn-primary active" (click)="update()" type="submit">
+        <div id="file-form">
+            <h1>About us</h1>
+            <textarea class="form-control" formControlName="aboutus" [(ngModel)]="this.aboutus" id="content" placeholder="Type your content here..."></textarea>
+            <!-- <ul id="file-list"></ul> -->
+        </div>
+        <div class="field">
+            <button class="btn btn-primary active" (click)="update()" type="submit">
         Update
       </button>
-      <button class="btn btn-danger active" routerLink="../">
+            <button class="btn btn-danger active" routerLink="../">
         Cancel
       </button>
 
-      <div id="messages"></div>
-    </div>
-  </form>
+            <div id="messages"></div>
+        </div>
+    </form>
 </div>
-<app-footer></app-footer>

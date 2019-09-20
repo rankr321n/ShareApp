@@ -12,8 +12,9 @@ import { componentFactoryName } from "@angular/compiler";
 import { VerifyComponent } from "./auth/verify/verify.component";
 import { ProfileComponent } from "./UserModule/ShareModule/profile.component";
 import { AnalyticsComponent } from "./AdminModule/admin/admindashboard/analytics/analytics.component";
-import { HomeComponent } from './UserModule/FriendModule/home/home.component';
-import { AddfriendComponent } from './UserModule/FriendModule/addfriend/addfriend.component';
+import { HomeComponent } from "./UserModule/FriendModule/home/home.component";
+import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfriend.component";
+import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -22,12 +23,16 @@ const routes: Routes = [
   {
     path: "admin",
     component: AdmindashboardComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      { path: "manage-user", component: UserManagementComponent },
+      { path: "terms", component: TermsComponent },
+      { path: "analytics", component: AnalyticsComponent },
+      { path: "monitor", component: MonitorComponent },
+      { path: "alert", component: ModalComponent }
+    ]
   },
-  { path: "admin/manage-user", component: UserManagementComponent },
-  { path: "admin/terms", component: TermsComponent },
-  { path: "admin/analytics", component: AnalyticsComponent },
-  { path: "alert", component: ModalComponent },
+
   { path: "verify/:token", component: VerifyComponent },
   { path: "user/profile", component: ProfileComponent },
   { path: "user", component: HomeComponent },
@@ -38,4 +43,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

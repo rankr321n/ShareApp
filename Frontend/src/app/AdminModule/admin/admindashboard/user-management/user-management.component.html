@@ -1,56 +1,53 @@
-<app-header></app-header>
-
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
 <section class="our-webcoderskull padding-lg">
-  <!-- <pre style="text-align:center" *ngIf="response">{{response}}</pre> -->
+    <!-- <pre style="text-align:center" *ngIf="response">{{response}}</pre> -->
 
 
-  <div class="container">
-    <div *ngIf="alert=='false'" class="alert alert-success"> <a class="close" data-dismiss="alert">&times;</a>
-      <div>{{response}}</div>
-    </div>
-    <div *ngIf="alert=='true'" class="alert alert-danger"> <a class="close" data-dismiss="alert">&times;</a>
-      <div>{{response}}</div>
-    </div>
-
-
-    <div class="row heading heading-icon">
-      <pre style="text-align: center">Manage Users Access</pre>
-    </div>
-    <ul class="row">
-
-      <li *ngFor="let item of users" class="col-12 col-md-6 col-lg-3">
-
-        <div class="cnt-block equal-hight" style="height: auto;">
-
-          <figure>
-            <img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt="" />
-            <p>Registered:{{item.createdAt|date:long}}</p>
-          </figure>
-
-          <p><a>email: {{item.email}}</a>
-
-          </p>
-          <p *ngIf="item.isVerified" class="label label-success">Access Available </p>
-          <p *ngIf="!item.isVerified" class="label label-danger">Access Revoked</p>
-
-          <p> <button *ngIf="item.isVerified" class="btn btn-danger " (click)="blockUser(item.email)">Block
-            </button>
-            <button *ngIf="!item.isVerified" class="btn btn-success " (click)="unblockUser(item.email)">UnBlock</button>
-          </p>
-
-
-
-
-          <ul class="follow-us clearfix">
-
-          </ul>
-
+    <div class="container">
+        <div *ngIf="alert=='false'" class="alert alert-success"> <a class="close" data-dismiss="alert">&times;</a>
+            <div>{{response}}</div>
         </div>
-      </li>
+        <div *ngIf="alert=='true'" class="alert alert-danger"> <a class="close" data-dismiss="alert">&times;</a>
+            <div>{{response}}</div>
+        </div>
 
-    </ul>
-  </div>
+
+        <div class="row heading heading-icon">
+            <pre style="text-align: center">Manage Users Access</pre>
+        </div>
+        <ul class="row">
+
+            <li *ngFor="let item of users" class="col-12 col-md-6 col-lg-3">
+
+                <div class="cnt-block equal-hight" style="height: auto;">
+
+                    <figure>
+                        <img src="http://www.webcoderskull.com/img/team4.png" class="img-responsive" alt="" />
+                        <p>Registered:{{item.createdAt|date:long}}</p>
+                    </figure>
+
+                    <p><a>email: {{item.email}}</a>
+
+                    </p>
+                    <p *ngIf="item.isVerified" class="label label-success">Access Available </p>
+                    <p *ngIf="!item.isVerified" class="label label-danger">Access Revoked</p>
+
+                    <p> <button *ngIf="item.isVerified" class="btn btn-danger " (click)="blockUser(item.email)">Block
+            </button>
+                        <button *ngIf="!item.isVerified" class="btn btn-success " (click)="unblockUser(item.email)">UnBlock</button>
+                    </p>
+
+
+
+
+                    <ul class="follow-us clearfix">
+
+                    </ul>
+
+                </div>
+            </li>
+
+        </ul>
+    </div>
 </section>
-<app-footer></app-footer>

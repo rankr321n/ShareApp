@@ -20,9 +20,10 @@ import { VerifyComponent } from "./auth/verify/verify.component";
 import { ProfileComponent } from "./UserModule/ShareModule/profile.component";
 import { UserSidenavComponent } from "./UserModule/user-sidenav/user-sidenav.component";
 import { AnalyticsComponent } from "./AdminModule/admin/admindashboard/analytics/analytics.component";
-import { HomeComponent } from './UserModule/FriendModule/home/home.component';
-import { FriendlistComponent } from './UserModule/FriendModule/friendlist/friendlist.component';
-import { AddfriendComponent } from './UserModule/FriendModule/addfriend/addfriend.component';
+import { HomeComponent } from "./UserModule/FriendModule/home/home.component";
+import { FriendlistComponent } from "./UserModule/FriendModule/friendlist/friendlist.component";
+import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfriend.component";
+import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,10 @@ import { AddfriendComponent } from './UserModule/FriendModule/addfriend/addfrien
     ProfileComponent,
     UserSidenavComponent,
     AnalyticsComponent,
-    HomeComponent, FriendlistComponent, AddfriendComponent
+    HomeComponent,
+    FriendlistComponent,
+    AddfriendComponent,
+    MonitorComponent
   ],
   imports: [
     BrowserModule,
@@ -53,4 +57,4 @@ import { AddfriendComponent } from './UserModule/FriendModule/addfriend/addfrien
   providers: [AuthorizeService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
