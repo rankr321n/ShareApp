@@ -12,7 +12,7 @@ import { componentFactoryName } from "@angular/compiler";
 import { VerifyComponent } from "./auth/verify/verify.component";
 import { ProfileComponent } from "./UserModule/ShareModule/profile.component";
 import { AnalyticsComponent } from "./AdminModule/admin/admindashboard/analytics/analytics.component";
-import { HomeComponent } from "./UserModule/FriendModule/home/home.component";
+import { HomeComponent } from "./UserModule/home/home.component";
 import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfriend.component";
 import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
 
@@ -28,11 +28,11 @@ const routes: Routes = [
       { path: "manage-user", component: UserManagementComponent },
       { path: "terms", component: TermsComponent },
       { path: "analytics", component: AnalyticsComponent },
-      { path: "monitor", component: MonitorComponent },
-      { path: "alert", component: ModalComponent }
+      { path: "monitor", component: MonitorComponent }
+      
     ]
   },
-
+  { path: "alert", component: ModalComponent },
   { path: "verify/:token", component: VerifyComponent },
   { path: "user/profile", component: ProfileComponent },
   { path: "user", component: HomeComponent },

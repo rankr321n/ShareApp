@@ -20,10 +20,11 @@ import { VerifyComponent } from "./auth/verify/verify.component";
 import { ProfileComponent } from "./UserModule/ShareModule/profile.component";
 import { UserSidenavComponent } from "./UserModule/user-sidenav/user-sidenav.component";
 import { AnalyticsComponent } from "./AdminModule/admin/admindashboard/analytics/analytics.component";
-import { HomeComponent } from "./UserModule/FriendModule/home/home.component";
+import { HomeComponent } from "./UserModule/home/home.component";
 import { FriendlistComponent } from "./UserModule/FriendModule/friendlist/friendlist.component";
 import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfriend.component";
 import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
+import { UserHeaderComponent } from './UserModule/user-header/user-header.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/mon
     HomeComponent,
     FriendlistComponent,
     AddfriendComponent,
-    MonitorComponent
+    MonitorComponent,
+    UserHeaderComponent
   ],
   imports: [
     BrowserModule,

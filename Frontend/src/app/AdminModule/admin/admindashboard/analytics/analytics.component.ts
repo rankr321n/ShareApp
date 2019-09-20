@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from '../admin.service';
 
 @Component({
   selector: 'app-analytics',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./analytics.component.css']
 })
 export class AnalyticsComponent implements OnInit {
-
-  constructor() { }
+users=[]
+  constructor(private admin:AdminService) { }
 
   ngOnInit() {
+    this.admin.manageUsers().subscribe(data => {
+      this.users = data;
+
+
+
+    });
   }
 
 }
