@@ -59,7 +59,7 @@
 }
 
 body {
-	background: #1f253d;
+	background:inherit;
 }
 
 ul {
@@ -251,7 +251,7 @@ h1, h2, p, a, span{
 		}
 			.header-menu li {
 				position: relative;
-        		-webkit-transform: translateZ(0); /** To avoid a flash when hover messages **/
+        		/* -webkit-transform: translateZ(0); * To avoid a flash when hover messages * */
 			}
 				.header-menu-tab {
 					padding: 0 27px;
@@ -320,7 +320,7 @@ h1, h2, p, a, span{
 			border-radius: 5px;
 		}
 		/******************************************** LEFT CONTAINER *****************************************/
-		.left-container {}
+		/* .left-container {} */
 			.menu-box {
 				height: 360px;
 			}
@@ -813,7 +813,7 @@ h1, h2, p, a, span{
 							.current-day-temperature .icon-cloudy {
 								padding-left: 20px;
 							}
-				.weather .next-days{}
+				/* .weather .next-days{} */
 				.weather .next-days p {
 					margin: 0;
 					display: inline-block;
@@ -935,7 +935,7 @@ h1, h2, p, a, span{
 						background: #cc324b;						
 					}
 		/********************************************* RIGHT CONTAINER ****************************************/
-		.right-container {}
+		/* .right-container {} */
 			.join-newsletter {
 				height: 230px;
 			}
