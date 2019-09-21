@@ -26,10 +26,10 @@ export class TermsComponent implements OnInit {
     });
     this.admin.getTerms().subscribe(data => {
       // console.log(data);
-      for (let item of data) {
-        this.terms = item.terms;
-        this.aboutus = item.aboutus;
-      }
+      
+        this.terms = data.terms;
+        this.aboutus = data.aboutus;
+      
     });
   }
 

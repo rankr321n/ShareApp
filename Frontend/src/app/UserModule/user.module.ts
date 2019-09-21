@@ -8,11 +8,12 @@ import { SidenavComponent } from '../AdminModule/admin/admindashboard/sidenav/si
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { TermsComponent } from './terms/terms.component';
+import { UserTermsComponent } from './user-terms/user-terms.component';
 
 
 
 @NgModule({
-  declarations: [FriendlistComponent, AddfriendComponent, HomeComponent, UpdateProfileComponent,SidenavComponent, UserHeaderComponent, AboutusComponent, TermsComponent],
+  declarations: [FriendlistComponent, AddfriendComponent, HomeComponent, UpdateProfileComponent,SidenavComponent, UserHeaderComponent, AboutusComponent, TermsComponent, UserTermsComponent],
   imports: [
     CommonModule
   ]

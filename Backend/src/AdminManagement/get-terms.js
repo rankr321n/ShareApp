@@ -3,7 +3,7 @@ var termsModel = require("./terms-model");
 exports.getTerms = function(req, res) {
   var data = req.body;
   termsModel
-    .find()
+    .findOne()
     .then(function(data) {
       return res
         .send(data)

@@ -17,6 +17,8 @@ import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfrien
 import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
 import { FriendlistComponent } from './UserModule/FriendModule/friendlist/friendlist.component';
 import { CompleteComponent } from './auth/complete/complete.component';
+import { AboutusComponent } from './UserModule/aboutus/aboutus.component';
+import { UserTermsComponent } from './UserModule/user-terms/user-terms.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -41,7 +43,10 @@ const routes: Routes = [
   { path: "user", component: HomeComponent ,children:[
     {path:"addfriend",component:AddfriendComponent},
     {path:"friends",component:FriendlistComponent},
-    { path: "drive", component: ProfileComponent }
+    { path: "drive", component: ProfileComponent },
+    {path:"about",component:AboutusComponent},
+    {path:"terms", component:UserTermsComponent}
+    
   ]},
   
 ];

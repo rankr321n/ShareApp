@@ -5,7 +5,7 @@ exports.terms = function(req, res) {
 
   // var terms = new termsModel(data);
   termsModel
-    .update(data)
+    .updateOne(data)
     .then(function() {
       res.status(200).json({ msg: "Terms& Conditions Updated" });
     })

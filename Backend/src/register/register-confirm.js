@@ -14,7 +14,7 @@ exports.signupPost = function(req, res) {
         return;
       }
       if (user) {
-        res.status(401).json({ status: "User already exists" });
+        res.json("User already exists" );
       }
     }
   );

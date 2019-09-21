@@ -13,6 +13,7 @@ export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   // role = "user";
   response:any;
+  failed:any
   constructor(private fb: FormBuilder, private reg: RegisterService, private router:Router) {}
 
   ngOnInit() {
@@ -62,13 +63,13 @@ export class RegisterComponent implements OnInit {
       return;
     }
     {
-      this.reg.registerUser(this.registerForm.value).subscribe(res=>{
-        this.response=JSON.stringify(res);
-        // console.log(this.response);
-
-        if(this.response="User added successfully and verification mail sent"){
-          this.router.navigate(["/complete"])
+      this.reg.registerUser(this.registerForm.value).subscribe(data=>{
+        this.response=data
+        if(this.response=="User already exists"){
+          this.failed=true
+          return
         }
+        this.router.navigate(['complete'])
         
       });
     }

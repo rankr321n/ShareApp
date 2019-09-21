@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-aboutus',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aboutus.component.css']
 })
 export class AboutusComponent implements OnInit {
+aboutus:any
+  constructor(private serv:UserService) { }
 
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit() { 
+     this.serv.getTerms().subscribe(data=>{
+    this.aboutus=data.aboutus
+        })
   }
 
 }

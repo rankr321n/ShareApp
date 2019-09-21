@@ -11,12 +11,10 @@ users=[]
   constructor(private admin:AdminService) { }
 
   ngOnInit() {
-    this.admin.manageUsers().subscribe(data => {
-      this.users = data;
 
 
 
-    });
+   
   }
 
 }

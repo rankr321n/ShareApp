@@ -15,7 +15,7 @@
     bottom: -630px;
     /* height: auto; */
     left: 0px;
-    position: absolute;
+    position: fixed;
     top: 51px;
     width: 200px;
     z-index: 8;
