@@ -28,35 +28,36 @@
                 </div>
                 <div class="content-panel">
                     <h2 class="title">Profile<span class="pro-label label label-warning">PRO</span></h2>
-                    <form class="form-horizontal">
+                    <form [formGroup]="updateForm" class="form-horizontal">
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title">Personal Info</h3>
                             <div class="form-group avatar">
                                 <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                    <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-                                </figure>
+             <img class="img-rounded img-responsive" src="{{fileName}}" alt="">
+                  </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                    <input type="file" class="file-uploader pull-left">
-                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                    <input formControlName="file" type="file" class="file-uploader pull-left">
+                                    <!-- <p *ngIf="file" class="pl-4 align-middle mb-0">{{file.name}}</p> -->
+                                    <!-- <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button> -->
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Rebecca">
+                                    <input formControlName="username" type="text" class="form-control" value="Rebecca">
                                 </div>
                             </div>
         
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Rebecca">
+                                    <input formControlName="firstname" type="text" class="form-control" value="Rebecca">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="Sanders">
+                                    <input formControlName="lastname" type="text" class="form-control" value="Sanders">
                                 </div>
                             </div>
                         </fieldset>
@@ -65,21 +66,21 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" class="form-control" value="Rebecca@website.com">
+                                    <input formControlName="email" type="email" class="form-control" value="Rebecca@website.com">
                                     <p class="help-block">This is the email </p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" class="form-control" value="SpeedyBecky">
+                                    <input formControlName="twitter" type="text" class="form-control" value="SpeedyBecky">
                                     <p class="help-block">Your twitter username</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Linkedin</label>
-                                <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="url" class="form-control" value="https://www.linkedin.com/in/lorem">
+                                <div class="col-md-10 col-sm-9 col-xs-12 ">
+                                    <input formControlName="linkedin" type="url" class="form-control" value="https://www.linkedin.com/in/lorem">
                                     <p class="help-block">eg. https://www.linkedin.com/in/yourname</p>
                                 </div>
                             </div>
@@ -87,7 +88,7 @@
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input class="btn btn-primary" type="submit" value="Update Profile">
+                                <input disabled="!updateForm.valid" class="btn btn-primary" type="submit" value="Update Profile">
                             </div>
                         </div>
                     </form>

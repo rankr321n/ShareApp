@@ -11,13 +11,14 @@ import { AboutusComponent } from './aboutus/aboutus.component';
 import { UserTermsComponent } from './user-terms/user-terms.component';
 import { UpdateUserProfileComponent } from './update-user-profile/update-user-profile.component';
 import { ViewUserProfileComponent } from './view-user-profile/view-user-profile.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [FriendlistComponent, AddfriendComponent, HomeComponent, SidenavComponent, UserHeaderComponent, AboutusComponent,  UserTermsComponent, UpdateUserProfileComponent, ViewUserProfileComponent],
   imports: [
-    CommonModule
+    CommonModule,ReactiveFormsModule,FormsModule
   ]
 })
 export class UserModule { }
