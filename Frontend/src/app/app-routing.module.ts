@@ -35,8 +35,10 @@ const routes: Routes = [
   { path: "alert", component: ModalComponent },
   { path: "verify/:token", component: VerifyComponent },
   { path: "user/profile", component: ProfileComponent },
-  { path: "user", component: HomeComponent },
-  { path: "user/addfriend", component: AddfriendComponent }
+  { path: "user", component: HomeComponent ,children:[
+    {path:"addfriend",component:AddfriendComponent}
+  ]},
+  
 ];
 
 @NgModule({
