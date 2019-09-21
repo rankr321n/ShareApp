@@ -7,13 +7,13 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { SidenavComponent } from '../AdminModule/admin/admindashboard/sidenav/sidenav.component';
 import { UserHeaderComponent } from './user-header/user-header.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { TermsComponent } from './terms/terms.component';
+
 import { UserTermsComponent } from './user-terms/user-terms.component';
 
 
 
 @NgModule({
-  declarations: [FriendlistComponent, AddfriendComponent, HomeComponent, UpdateProfileComponent,SidenavComponent, UserHeaderComponent, AboutusComponent, TermsComponent, UserTermsComponent],
+  declarations: [FriendlistComponent, AddfriendComponent, HomeComponent, UpdateProfileComponent,SidenavComponent, UserHeaderComponent, AboutusComponent,  UserTermsComponent],
   imports: [
     CommonModule
   ]
