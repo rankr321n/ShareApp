@@ -20,6 +20,7 @@
 }
 
 section {
+    margin-top: 2rem;
     padding: 60px 0;
 }
 
@@ -31,7 +32,8 @@ section .section-title {
 }
 
 #team .card {
-    border: none;
+  border-radius: 8px;
+    border: 4px ;
     background: #ffffff;
 }
 
@@ -42,7 +44,8 @@ section .section-title {
     -o-transform: rotateY(0deg);
     -ms-transform: rotateY(0deg);
     transform: rotateY(0deg);
-    border-radius: .25rem;
+    border-radius: 8px;
+    border: 4px ;
 }
 
 .image-flip:hover .frontside,
@@ -58,7 +61,7 @@ section .section-title {
     -webkit-transform-style: preserve-3d;
     -ms-transition: 1s;
     -moz-transition: 1s;
-    -moz-transform: perspective(1000px);
+    /* -moz-transform: perspective(1000px); */
     -moz-transform-style: preserve-3d;
     -ms-transform-style: preserve-3d;
     transition: 1s;
@@ -68,8 +71,8 @@ section .section-title {
 
 .frontside {
     position: relative;
-    -webkit-transform: rotateY(0deg);
-    -ms-transform: rotateY(0deg);
+    /* -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg); */
     z-index: 2;
     margin-bottom: 30px;
 }
@@ -126,4 +129,8 @@ section .section-title {
     width: 120px;
     height: 120px;
     border-radius: 50%;
+}
+
+.text-center{
+    padding: 50px;
 }

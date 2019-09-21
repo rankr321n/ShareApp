@@ -25,6 +25,7 @@ import { FriendlistComponent } from "./UserModule/FriendModule/friendlist/friend
 import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfriend.component";
 import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
 import { UserHeaderComponent } from './UserModule/user-header/user-header.component';
+import { CompleteComponent } from './auth/complete/complete.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { UserHeaderComponent } from './UserModule/user-header/user-header.compon
     FriendlistComponent,
     AddfriendComponent,
     MonitorComponent,
-    UserHeaderComponent
+    UserHeaderComponent,CompleteComponent
   ],
   imports: [
     BrowserModule,

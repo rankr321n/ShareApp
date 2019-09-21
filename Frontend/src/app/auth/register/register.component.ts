@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { CustomValidators } from "./custom-validators";
 import { RegisterService } from "./register.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-register",
@@ -11,7 +12,8 @@ import { RegisterService } from "./register.service";
 export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   // role = "user";
-  constructor(private fb: FormBuilder, private reg: RegisterService) {}
+  response:any;
+  constructor(private fb: FormBuilder, private reg: RegisterService, private router:Router) {}
 
   ngOnInit() {
     this.registerForm = this.fb.group(
@@ -60,7 +62,15 @@ export class RegisterComponent implements OnInit {
       return;
     }
     {
-      this.reg.registerUser(this.registerForm.value).subscribe();
+      this.reg.registerUser(this.registerForm.value).subscribe(res=>{
+        this.response=JSON.stringify(res);
+        // console.log(this.response);
+
+        if(this.response="User added successfully and verification mail sent"){
+          this.router.navigate(["/complete"])
+        }
+        
+      });
     }
   }
 }

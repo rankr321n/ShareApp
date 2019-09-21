@@ -29,10 +29,8 @@ exports.signupPost = function(req, res) {
     if (err) {
       res.status(500);
     } else
-      res.status(200).json({
-        status: "success",
-        message: "User added successfully and verification mail sent"
-      });
+      res.status(200).json("User added successfully and verification mail sent"
+      );
 
     //create json webtoken
 

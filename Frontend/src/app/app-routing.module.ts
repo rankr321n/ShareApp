@@ -15,11 +15,14 @@ import { AnalyticsComponent } from "./AdminModule/admin/admindashboard/analytics
 import { HomeComponent } from "./UserModule/home/home.component";
 import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfriend.component";
 import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
+import { FriendlistComponent } from './UserModule/FriendModule/friendlist/friendlist.component';
+import { CompleteComponent } from './auth/complete/complete.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: "forgot", component: ForgotComponent },
+  { path: "complete", component: CompleteComponent },
   {
     path: "admin",
     component: AdmindashboardComponent,
@@ -34,9 +37,11 @@ const routes: Routes = [
   },
   { path: "alert", component: ModalComponent },
   { path: "verify/:token", component: VerifyComponent },
-  { path: "user/profile", component: ProfileComponent },
+  
   { path: "user", component: HomeComponent ,children:[
-    {path:"addfriend",component:AddfriendComponent}
+    {path:"addfriend",component:AddfriendComponent},
+    {path:"friends",component:FriendlistComponent},
+    { path: "drive", component: ProfileComponent }
   ]},
   
 ];
