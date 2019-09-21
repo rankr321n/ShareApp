@@ -19,6 +19,8 @@ import { FriendlistComponent } from './UserModule/FriendModule/friendlist/friend
 import { CompleteComponent } from './auth/complete/complete.component';
 import { AboutusComponent } from './UserModule/aboutus/aboutus.component';
 import { UserTermsComponent } from './UserModule/user-terms/user-terms.component';
+import { UpdateUserProfileComponent } from './UserModule/update-user-profile/update-user-profile.component';
+import { ViewUserProfileComponent } from './UserModule/view-user-profile/view-user-profile.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -45,7 +47,9 @@ const routes: Routes = [
     {path:"friends",component:FriendlistComponent},
     { path: "drive", component: ProfileComponent },
     {path:"about",component:AboutusComponent},
-    {path:"terms", component:UserTermsComponent}
+    {path:"terms", component:UserTermsComponent},
+    {path:"updateprofile",component:UpdateUserProfileComponent},
+    {path:"viewprofile",component:ViewUserProfileComponent}
     
   ]},
   

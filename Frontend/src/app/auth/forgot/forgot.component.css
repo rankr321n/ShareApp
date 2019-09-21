@@ -201,7 +201,7 @@ body {
 }
 
 .main-bg {
-  background: url(../../../assets/images/b4.jpg) no-repeat center;
+  background: url("https://images.pexels.com/photos/303383/pexels-photo-303383.jpeg?cs=srgb&dl=background-connection-contemporary-303383.jpg&fm=jpg") no-repeat center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -224,8 +224,8 @@ h1 {
 /* //title */
 
 .sub-main-w3 {
-  margin: 0.5vw 25vw;
-  /* margin: 12vw auto; */
+  margin: 0.5vw 23.5vw;
+  /* margin: 12vw; */
   max-width: 1105px;
 }
 

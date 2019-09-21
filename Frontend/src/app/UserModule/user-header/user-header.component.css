@@ -50,7 +50,10 @@
     margin: 0 0 0 10px;
     line-height:30px;
   }
-  
+  .navbar-right .dropdown-menu {
+    right: -1px;
+    left: -362px;
+}
   #fb-top span{
     color:#4267B2;
     float:right;
@@ -125,4 +128,4 @@
     padding-top:20px;
   }
   
-  
+ 
