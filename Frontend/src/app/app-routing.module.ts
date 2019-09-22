@@ -48,8 +48,8 @@ const routes: Routes = [
     { path: "drive", component: ProfileComponent },
     {path:"about",component:AboutusComponent},
     {path:"terms", component:UserTermsComponent},
-    {path:"updateprofile",component:UpdateUserProfileComponent},
-    {path:"viewprofile",component:ViewUserProfileComponent}
+    {path:"updateprofile/:id",component:UpdateUserProfileComponent},
+    {path:"viewprofile/:id",component:ViewUserProfileComponent}
     
   ]},
   

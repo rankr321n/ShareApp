@@ -1,15 +1,18 @@
 var mongoose = require("mongoose");
+require('mongoose-type-email');
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
 var registerSchema = new mongoose.Schema({
-  email: {
-    type: String,
+  email:{ 
+    // type:mongoose.SchemaTypes.Email,
+    type:String,
     required: true,
     unique: true,
-    trim: true
-  },
+    trim: true},
+  
   role: {
-    type: String
+    type: String,immutable: true
+    
   },
   password: {
     type: String,
@@ -27,7 +30,12 @@ var registerSchema = new mongoose.Schema({
   },
 
   logintoken: { type: String },
+  
+  isloggedIn:{type:Boolean,required:true,default:false},
   registertoken: { type: String }
+
+
+
 });
 // hash user password before saving into database
 registerSchema.pre("save", function(next) {

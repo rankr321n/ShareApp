@@ -14,6 +14,9 @@ var termController = require("./src/AdminManagement/terms-controller");
 var terms = require("./src/AdminManagement/get-terms");
 var blockUserControl = require("./src/AdminManagement/block-access");
 var unblockControl = require("./src/AdminManagement/unblock-access");
+// var userupdate=require("./src/UserServices/updateUser")
+var friendrequest=require('./src/UserServices/FriendReq')
+
 mongoose.connect("mongodb://localhost:27017/shareApp", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -28,7 +31,7 @@ router.use(
     extended: false
   })
 );
-
+// app.use("/",function(req,res){res.json("Unauthorized ACCESS")})
 app.use("/register", regcont.signupPost);
 app.use("/getuser", getUserDataForAdmin.getUser);
 app.use("/terms", termController.terms);
@@ -36,6 +39,11 @@ app.use("/termsandconditions", terms.getTerms);
 app.use("/login", authenticationControl.authenticate);
 app.use("/block", blockUserControl.blockUser);
 app.use("/unblock", unblockControl.unblockUser);
+// app.use("/updateuser",userupdate.getUser)
+// app.use("/getfriends",friendrequest.get_friend);
+// app.use('/sendrequest',friendrequest.get_friend)
+
+
 
 app.listen(port, function() {
   console.log("Server started on port 3000");

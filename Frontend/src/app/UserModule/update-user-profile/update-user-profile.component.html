@@ -27,17 +27,17 @@
         			</nav>
                 </div>
                 <div class="content-panel">
-                    <h2 class="title">Profile<span class="pro-label label label-warning">PRO</span></h2>
+                    <h2 class="title">Profile<span class="pro-label label label-warning">*Profile</span></h2>
                     <form [formGroup]="updateForm" class="form-horizontal">
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title">Personal Info</h3>
                             <div class="form-group avatar">
                                 <figure class="figure col-md-2 col-sm-3 col-xs-12">
-             <img class="img-rounded img-responsive" src="{{fileName}}" alt="">
+             <img class="img-rounded img-responsive"  [src]="imgURL"  *ngIf="imgURL" alt="img">
                   </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                    <input formControlName="file" type="file" class="file-uploader pull-left">
-                                    <!-- <p *ngIf="file" class="pl-4 align-middle mb-0">{{file.name}}</p> -->
+                                    <input   #file (change)="preview(file.files)" type="file"  enctype="multipart/form-data" accept='image/*' class="file-uploader pull-left">
+                                    <p *ngIf="message" class="pl-4 align-middle mb-0">{{message}}</p>
                                     <!-- <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button> -->
                                 </div>
                             </div>
