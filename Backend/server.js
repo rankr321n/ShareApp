@@ -6,7 +6,7 @@ const router = express.Router();
 require("dotenv").config();
 
 var port = 3000;
-
+var getUserForUser = require("./src/UserServices/getRegisteredUsers");
 var authenticationControl = require("./src/auth/auth-server");
 var getUserDataForAdmin = require("./src/AdminManagement/get-users");
 var regcont = require("./src/register/register-confirm");
@@ -14,24 +14,22 @@ var termController = require("./src/AdminManagement/terms-controller");
 var terms = require("./src/AdminManagement/get-terms");
 var blockUserControl = require("./src/AdminManagement/block-access");
 var unblockControl = require("./src/AdminManagement/unblock-access");
-// var userupdate=require("./src/UserServices/updateUser")
-var friendrequest=require('./src/UserServices/FriendReq')
 
 mongoose.connect("mongodb://localhost:27017/shareApp", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 var app = express();
 app.use(cors());
 app.use(bodyParser.json());
 router.use(
-  bodyParser.urlencoded({
-    extended: false
-  })
+    bodyParser.urlencoded({
+        extended: false
+    })
 );
-// app.use("/",function(req,res){res.json("Unauthorized ACCESS")})
+
 app.use("/register", regcont.signupPost);
 app.use("/getuser", getUserDataForAdmin.getUser);
 app.use("/terms", termController.terms);
@@ -39,12 +37,8 @@ app.use("/termsandconditions", terms.getTerms);
 app.use("/login", authenticationControl.authenticate);
 app.use("/block", blockUserControl.blockUser);
 app.use("/unblock", unblockControl.unblockUser);
-// app.use("/updateuser",userupdate.getUser)
-// app.use("/getfriends",friendrequest.get_friend);
-// app.use('/sendrequest',friendrequest.get_friend)
-
-
+app.use("/getreguser", getUserForUser.getRegUserForuser);
 
 app.listen(port, function() {
-  console.log("Server started on port 3000");
+    console.log("Server started on port 3000");
 });

@@ -1,274 +1,178 @@
 <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <div class="people-nearby">
-                  
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Sophia Page</a></h5>
-                        <p>Software Engineer</p>
-                        <p class="text-muted">500m away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="people-nearby">
+                <!--  -->
+
+                <div class=" myclass">
+                    <div>
+                        <!-- <div class="col-md-2 col-sm-2"> -->
+                        <form>
+                            <div class="input-group">
+                                <input type="text" id="srch-term" [(ngModel)]="usersearch" name="srch-term" placeholder="Search" class="form-control" />
+                                <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default btn-primary">
+                    <i class="glyphicon glyphicon-search"></i>
+                  </button>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- </div> -->
+
+                        <div class="col-md-7 col-sm-7">
+                            <h5>
+                                <a class="profile-link"></a>
+                            </h5>
+
+                            <p class="text-muted"></p>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <!-- <button class="btn btn-primary pull-right">Add Friend</button> -->
+                        </div>
                     </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Emma Johnson</a></h5>
-                        <p>Model at Fashion</p>
-                        <p class="text-muted">800m away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Nora Wilson</a></h5>
-                        <p>Writer at Newspaper</p>
-                        <p class="text-muted">2.5km away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Diana Amber</a></h5>
-                        <p>Student</p>
-                        <p class="text-muted">700m away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Addison Thomas</a></h5>
-                        <p>Barber at Fashion</p>
-                        <p class="text-muted">1.5km away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Jonathon Thompson</a></h5>
-                        <p>Fashion Designer</p>
-                        <p class="text-muted">2km away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Olivia Steward</a></h5>
-                        <p>Creative Director</p>
-                        <p class="text-muted">2km away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Elena Foster</a></h5>
-                        <p>Executive Officer</p>
-                        <p class="text-muted">4km away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Brian Walton</a></h5>
-                        <p>Designer at Designer</p>
-                        <p class="text-muted">3km away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="nearby-user">
-                    <div class="row">
-                      <div class="col-md-2 col-sm-2">
-                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg">
-                      </div>
-                      <div class="col-md-7 col-sm-7">
-                        <h5><a href="#" class="profile-link">Cris Haris</a></h5>
-                        <p>General Manager at Manager</p>
-                        <p class="text-muted">1km away</p>
-                      </div>
-                      <div class="col-md-3 col-sm-3">
-                        <button class="btn btn-primary pull-right">Add Friend</button>
-                      </div>
-                      
-                    </div>
-                    
-                  </div>
-                  
                 </div>
-                
+
+                <!--  -->
+
+                <div *ngFor="let item of users | search: usersearch" class="nearby-user">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="user" class="profile-photo-lg" />
+                        </div>
+
+                        <div class="col-md-7 col-sm-7">
+                            <h5>
+                                <a class="profile-link">{{ item.firstname }}{{ item.lastname }}</a
+                >
+              </h5>
+              <p>Software Engineer</p>
+
+              <p class="text-muted">Email: {{ item.email }}</p>
             </div>
-            <!-- COL 3 -->
-		<div class="col-md-4">
-        <!-- projects -->
-        <section class="panel panel-default">
-          <header class="panel-heading">
-            <h2 class="panel-title elipsis">
-              <i class="fa fa-rss"></i> NewsFeed
-            </h2>
-          </header>
-  
-          <div class="panel-body noradius padding-10">
-            <ul class="bullet-list list-unstyled">
-              <li class="red">
-                <h3>Epona HTML5 Template</h3>
-                <span class="text-gray size-12">Lorem ipsum dolor sit amet, consectetuer adipiscing </span>
-              </li>
-              <li class="green">
-                <h3>Atropos Template</h3>
-                <span class="text-gray size-12">Lorem ipsum dolor sit amet, consectetuer adipiscing </span>
-              </li>
-              <li class="blue">
-                <h3>isisone Template</h3>
-                <span class="text-gray size-12">Lorem ipsum dolor sit amet, consectetuer adipiscing </span>
-              </li>
-              <li class="orange">
-                <h3>Deusone Template</h3>
-                <span class="text-gray size-12">Lorem ipsum dolor sit amet, consectetuer adipiscing </span>
-              </li>
-            </ul>
-          </div>
-        </section>
-        <!-- /projects -->
-  
-        <!-- activity -->
-        <section class="panel panel-default">
-          <header class="panel-heading">
-            <h2 class="panel-title elipsis">
-              <i class="fa fa-rss"></i> Activity
-            </h2>
-          </header>
-  
-          <div class="panel-body noradius padding-10">
-            <!-- activity list -->
-            <div class="row profile-activity">
-              <!-- activity item -->
-              <div class="col-xs-2 col-sm-1">
-                <time datetime="2014-06-29" class="datebox">
-                  <strong>Jun</strong>
-                  <span>29</span>
-                </time>
-              </div>
-  
-              <div class="col-xs-10 col-sm-11">
-                <h6><a href="page-sidebar.html">Lorem ipsum dolor sit amet</a></h6>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
-                  tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam 
-                  tincidunt erat volutpat.
-                </p>
-              </div>
-              <!-- /activity item -->
-  
-              <div class="col-sm-12">
-                <hr class="half-margins">
-              </div><!-- /activity separator -->
-  
-              <!-- activity item -->
-              <div class="col-xs-2 col-sm-1">
-                <time datetime="2014-06-29" class="datebox">
-                  <strong>Jun</strong>
-                  <span>29</span>
-                </time>
-              </div>
-  
-              <div class="col-xs-10 col-sm-11">
-                <h6><a href="page-sidebar.html">Sed diam nonummy nibh euismod</a></h6>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod 
-                  tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam 
-                  tincidunt erat volutpat.
-                </p>
-              </div>
-              <!-- /activity item -->
-  
-              <div class="col-sm-12">
-                <hr class="half-margins">
-              </div><!-- /activity separator -->
-  
-              <!-- paginatoin -->
-              <div class="text-center">
-                <ul class="pagination pagination-sm">
-                  <li class="disabled"><a href="#">Prev</a></li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">Next</a></li>
-                </ul>													
-              </div>
-              <!-- /paginatoin -->
+            <div class="col-md-3 col-sm-3">
+              <button class="btn btn-primary pull-right">Add Friend</button>
             </div>
-            <!-- /activity list -->
           </div>
-        </section>
-        <!-- /activity -->
-      </div><!-- /COL 3 -->
+        </div>
+      </div>
+    </div>
+    <!-- COL 3 -->
+    <div class="col-md-4">
+      <!-- projects -->
+      <section class="panel panel-default">
+        <header class="panel-heading">
+          <h2 class="panel-title elipsis">
+            <i class="fa fa-rss"></i> NewsFeed
+          </h2>
+        </header>
+
+        <div class="panel-body noradius padding-10">
+          <ul class="bullet-list list-unstyled">
+            <li class="red">
+              <h3>Epona HTML5 Template</h3>
+              <span class="text-gray size-12"
+                >Lorem ipsum dolor sit amet, consectetuer adipiscing
+              </span>
+            </li>
+            <li class="green">
+              <h3>Atropos Template</h3>
+              <span class="text-gray size-12"
+                >Lorem ipsum dolor sit amet, consectetuer adipiscing
+              </span>
+            </li>
+            <li class="blue">
+              <h3>isisone Template</h3>
+              <span class="text-gray size-12"
+                >Lorem ipsum dolor sit amet, consectetuer adipiscing
+              </span>
+            </li>
+            <li class="orange">
+              <h3>Deusone Template</h3>
+              <span class="text-gray size-12"
+                >Lorem ipsum dolor sit amet, consectetuer adipiscing
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <!-- /projects -->
+
+      <!-- activity -->
+      <section class="panel panel-default">
+        <header class="panel-heading">
+          <h2 class="panel-title elipsis">
+            <i class="fa fa-rss"></i> Activity
+          </h2>
+        </header>
+
+        <div class="panel-body noradius padding-10">
+          <!-- activity list -->
+          <div class="row profile-activity">
+            <!-- activity item -->
+            <div class="col-xs-2 col-sm-1">
+              <time datetime="2014-06-29" class="datebox">
+                <strong>Jun</strong>
+                <span>29</span>
+              </time>
+            </div>
+
+            <div class="col-xs-10 col-sm-11">
+              <h6>
+                <a href="page-sidebar.html">Lorem ipsum dolor sit amet</a>
+                                </h6>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.
+                                </p>
+                        </div>
+                        <!-- /activity item -->
+
+                        <div class="col-sm-12">
+                            <hr class="half-margins" />
+                        </div>
+                        <!-- /activity separator -->
+
+                        <!-- activity item -->
+                        <div class="col-xs-2 col-sm-1">
+                            <time datetime="2014-06-29" class="datebox">
+                <strong>Jun</strong>
+                <span>29</span>
+              </time>
+                        </div>
+
+                        <div class="col-xs-10 col-sm-11">
+                            <h6>
+                                <a href="page-sidebar.html">Sed diam nonummy nibh euismod</a>
+                            </h6>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt laoreet dolore magna aliquam tincidunt erat volutpat laoreet dolore magna aliquam tincidunt erat volutpat.
+                            </p>
+                        </div>
+                        <!-- /activity item -->
+
+                        <div class="col-sm-12">
+                            <hr class="half-margins" />
+                        </div>
+                        <!-- /activity separator -->
+
+                        <!-- paginatoin -->
+                        <div class="text-center">
+                            <ul class="pagination pagination-sm">
+                                <li class="disabled"><a href="#">Prev</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">Next</a></li>
+                            </ul>
+                        </div>
+                        <!-- /paginatoin -->
+                    </div>
+                    <!-- /activity list -->
+                </div>
+                </section>
+                <!-- /activity -->
+            </div>
+            <!-- /COL 3 -->
         </div>
     </div>
     <!-- as -->
-
-
-    

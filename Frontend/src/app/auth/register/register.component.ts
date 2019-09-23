@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { CustomValidators } from "./custom-validators";
 import { RegisterService } from "./register.service";
-import { Router } from '@angular/router';
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-register",
@@ -12,9 +12,13 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   public registerForm: FormGroup;
   // role = "user";
-  response:any;
-  failed:any
-  constructor(private fb: FormBuilder, private reg: RegisterService, private router:Router) {}
+  response: any;
+  failed: any;
+  constructor(
+    private fb: FormBuilder,
+    private reg: RegisterService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.registerForm = this.fb.group(
@@ -63,14 +67,13 @@ export class RegisterComponent implements OnInit {
       return;
     }
     {
-      this.reg.registerUser(this.registerForm.value).subscribe(data=>{
-        this.response=data
-        if(this.response=="User already exists"){
-          this.failed=true
-          return
+      this.reg.registerUser(this.registerForm.value).subscribe(data => {
+        this.response = data;
+        if (this.response == "User already exists") {
+          this.failed = true;
+          return;
         }
-        this.router.navigate(['complete'])
-        
+        // this.router.navigate(['complete'])
       });
     }
   }

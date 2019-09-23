@@ -24,13 +24,13 @@ import { HomeComponent } from "./UserModule/home/home.component";
 import { FriendlistComponent } from "./UserModule/FriendModule/friendlist/friendlist.component";
 import { AddfriendComponent } from "./UserModule/FriendModule/addfriend/addfriend.component";
 import { MonitorComponent } from "./AdminModule/admin/admindashboard/monitor/monitor.component";
-import { UserHeaderComponent } from './UserModule/user-header/user-header.component';
-import { CompleteComponent } from './auth/complete/complete.component';
-import { AboutusComponent } from './UserModule/aboutus/aboutus.component';
-import { UserTermsComponent } from './UserModule/user-terms/user-terms.component';
-import { UpdateUserProfileComponent } from './UserModule/update-user-profile/update-user-profile.component';
-import { ViewUserProfileComponent } from './UserModule/view-user-profile/view-user-profile.component';
-
+import { UserHeaderComponent } from "./UserModule/user-header/user-header.component";
+import { CompleteComponent } from "./auth/complete/complete.component";
+import { AboutusComponent } from "./UserModule/aboutus/aboutus.component";
+import { UserTermsComponent } from "./UserModule/user-terms/user-terms.component";
+import { UpdateUserProfileComponent } from "./UserModule/update-user-profile/update-user-profile.component";
+import { ViewUserProfileComponent } from "./UserModule/view-user-profile/view-user-profile.component";
+import { SearchPipe } from "./UserModule/FriendModule/addfriend/search.pipe";
 
 @NgModule({
   declarations: [
@@ -53,7 +53,13 @@ import { ViewUserProfileComponent } from './UserModule/view-user-profile/view-us
     FriendlistComponent,
     AddfriendComponent,
     MonitorComponent,
-    UserHeaderComponent,CompleteComponent,AboutusComponent,UserTermsComponent,UpdateUserProfileComponent,ViewUserProfileComponent
+    UserHeaderComponent,
+    CompleteComponent,
+    AboutusComponent,
+    UserTermsComponent,
+    UpdateUserProfileComponent,
+    ViewUserProfileComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
