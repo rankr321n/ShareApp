@@ -14,6 +14,8 @@ var termController = require("./src/AdminManagement/terms-controller");
 var terms = require("./src/AdminManagement/get-terms");
 var blockUserControl = require("./src/AdminManagement/block-access");
 var unblockControl = require("./src/AdminManagement/unblock-access");
+var FriendRequest=require('./src/UserServices/friendModule')
+
 
 mongoose.connect("mongodb://localhost:27017/shareApp", {
     useNewUrlParser: true,
@@ -29,15 +31,27 @@ router.use(
         extended: false
     })
 );
-
+//Shared Routes
+app.use("/login", authenticationControl.authenticate);
 app.use("/register", regcont.signupPost);
+app.use("/termsandconditions", terms.getTerms);
+
+//Admin routes
 app.use("/getuser", getUserDataForAdmin.getUser);
 app.use("/terms", termController.terms);
-app.use("/termsandconditions", terms.getTerms);
-app.use("/login", authenticationControl.authenticate);
 app.use("/block", blockUserControl.blockUser);
 app.use("/unblock", unblockControl.unblockUser);
-app.use("/getreguser", getUserForUser.getRegUserForuser);
+
+//User Routes
+//FriendsModule Routes
+app.use("/getreguser", getUserForUser.getRegUserForuser); //get memberlist registered on app for user
+app.use('/searchFriend',FriendRequest.get_friend)
+app.use('/sendFriendRequest',FriendRequest.post_friend_request)
+app.use('/acceptFriend',FriendRequest.post_accept_friend_requests)
+
+app.use('/cancelRequest',FriendRequest.post_cancel_friend_requests)
+app.use('/unfriend',FriendRequest.post_unfriend)
+
 
 app.listen(port, function() {
     console.log("Server started on port 3000");

@@ -1,15 +1,16 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
 })
 export class UserService {
+  friendsChanged = new Subject<number>();
   url = "http://localhost:3000";
 
   constructor(private http: HttpClient) {}
-
+//Terms and conditions Display
   getTerms(): Observable<any> {
     return this.http.get(this.url + "/termsandconditions");
   }
@@ -17,4 +18,19 @@ export class UserService {
   getReguser(): Observable<any> {
     return this.http.get(this.url + "/getreguser");
   }
+
+searchFriend(data: any) {
+  return this.http.post(this.url+"/searchFriend",  data);
+}
+
+sendFriendRequest(data: any) {
+  return this.http.post<any>(this.url+"/sendFriendRequest", data );
+}
+unFriend(id: any) {
+  // console.log(id);
+  return this.http.post<any>(this.url+"/unfriend", {
+    id: id
+  });
+}
+
 }
