@@ -69,6 +69,7 @@
             </div>
             <div class="col-md-3 col-sm-3">
               <button (click)="onSendRequest(item.email)" class="btn btn-primary pull-right">Add Friend</button>
+              <button *ngIf="error" class="btn btn-success pull-right">Add Friend</button>
             </div>
           </div>
         </div>
