@@ -28,14 +28,18 @@ module.exports = {
           const options = { issuer: "Randhir", expiresIn: "1h" };
           const logintoken = jwt.sign(payload, secretKey, options);
         
-          
+         
+         
 
-          if(user.isVerified,user,isMatch)
+
+         if(user.isVerified,isMatch)
 {
 
   res.status(201).json(logintoken)
 
 }         
+          
+            // res.status(401).json("You are unverified")
           
         
         

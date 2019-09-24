@@ -68,11 +68,12 @@
               <p class="text-muted">Email: {{ item.email }}</p>
             </div>
             <div class="col-md-3 col-sm-3">
-              <button (click)="onSendRequest(item.email)" class="btn btn-primary pull-right">Add Friend</button>
-              <button *ngIf="error" class="btn btn-success pull-right">Add Friend</button>
+              <button (click)="onSendRequest(item.email)" *ngIf="!sent" class="btn btn-primary pull-right">Add Friend</button>
+              <button *ngIf="sent"  disabled class="btn btn-success pull-right">RequestSent</button>
             </div>
           </div>
         </div>
+        <!-- LoopEND -->
       </div>
     </div>
     <!-- COL 3 -->

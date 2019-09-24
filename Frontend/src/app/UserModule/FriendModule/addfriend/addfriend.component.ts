@@ -14,9 +14,9 @@ export class AddfriendComponent implements OnInit {
   usersearch = "";
   
   private error = null;
-
-  private friend = {};
-  private showFriend = false;
+sent=false
+  // private friend = {};
+  // private showFriend = false;
   ngOnInit() {
 
     
@@ -26,12 +26,14 @@ export class AddfriendComponent implements OnInit {
   }
  
   onSendRequest(email) {
-    console.log(this.friend);
+    // console.log(this.friend);
     this.api.sendFriendRequest({email:email}).subscribe(
       res => {
-        console.log("Request Sent");
-        console.log(res);
-        // this.router.navigate(["/user"]);
+        if(res){
+this.sent=true
+
+        }
+
       },
       err => {
         console.log(err);

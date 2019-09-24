@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
     });
 
 this.api.getCurrentUser().subscribe(res=>{
-  console.log("loggedin USEr",res);
+  // console.log("loggedin USEr",res);
   
 })
 
