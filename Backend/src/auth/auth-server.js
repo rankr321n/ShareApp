@@ -25,7 +25,7 @@ module.exports = {
           );
           const payload = { id: user.id, email: user.email };
           const secretKey = "verify";
-          const options = { issuer: "Randhir", expiresIn: "10m" };
+          const options = { issuer: "Randhir", expiresIn: "1h" };
           const logintoken = jwt.sign(payload, secretKey, options);
         
           

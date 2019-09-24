@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { AuthorizeService } from 'src/app/auth/authorize.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,7 +8,7 @@ import * as $ from 'jquery';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private api:AuthorizeService) { }
 
   ngOnInit() {
     $('[data-toggle=offcanvas]').click(function () {
@@ -18,6 +19,14 @@ export class HomeComponent implements OnInit {
       $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
       $('#btnShow').toggle();
     });
+
+this.api.getCurrentUser().subscribe(res=>{
+  console.log("loggedin USEr",res);
+  
+})
+
+
+
   }
 
 }

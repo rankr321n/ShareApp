@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
 
   // console.log("M token verify karunga");
   
-  console.log(req.headers.authorization);
+  // console.log(req.headers.authorization);
   if (!req.headers.authorization) {
     return res.status(401).send("Unauthorized request");
   }
@@ -17,8 +17,8 @@ module.exports = (req, res, next) => {
     if (err) {
       console.log("err", err.message);
       // console.log(process.env.JWT_KEY);
-      
-      return res.status(401).send("Unauthorized request");
+      return
+      // return res.status(401).send("Unauthorized request");
     }
     // console.log("res", res);
     req.email = res.email;

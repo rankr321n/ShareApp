@@ -19,37 +19,19 @@ export class AddfriendComponent implements OnInit {
   private showFriend = false;
   ngOnInit() {
 
-    // this.onFindFriend()
+    
     this.api.getReguser().subscribe(res => {
       this.users = res;
     });
   }
-  onFindFriend() {
-    console.log(this.usersearch);
-    
-    this.api.searchFriend(this.friend).subscribe(
-      res => {
-        console.log(res);
-        this.showFriend = true;
-        this.friend = res;
-      },
-      err => {
-        console.log(err);
-        this.error = err.error;
-        setTimeout(() => {
-          this.error = null;
-        }, 3000);
-      }
-    );
-  }
-
-  onSendRequest(useremail:any) {
+ 
+  onSendRequest(email) {
     console.log(this.friend);
-    this.api.sendFriendRequest(useremail).subscribe(
+    this.api.sendFriendRequest({email:email}).subscribe(
       res => {
         console.log("Request Sent");
         console.log(res);
-        this.router.navigate(["/user"]);
+        // this.router.navigate(["/user"]);
       },
       err => {
         console.log(err);

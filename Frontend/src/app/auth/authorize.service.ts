@@ -43,4 +43,9 @@ public get currentUserValue(): any {
   public get loggedIn(): boolean {
     return localStorage.getItem("access_token") !== null;
   }
+
+  getCurrentUser():Observable<any>{
+    return this.http.get(this.url+"/dashboard")
+    }
+
 }

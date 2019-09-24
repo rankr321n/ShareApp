@@ -34,12 +34,12 @@ const User = require("./userModel");
   
   exports.post_friend_request = (req, res, next) => {
     console.log(req.body.email, req._id);
-    User.findOne({ _id: req.body._id })
+    User.findOne({ email:req.body.email })
       .populate("receivedRequests friends sentRequests")
       .exec()
       .then(friend => {
         alreadySent = false;
-  
+        console.log(friend)
         for (f of friend.receivedRequests) {
           if (f.email === req.email) {
             alreadySent = true;
