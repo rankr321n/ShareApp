@@ -42,7 +42,8 @@ const routes: Routes = [
   { path: "alert", component: ModalComponent },
   { path: "verify/:token", component: VerifyComponent },
   
-  { path: "user", component: HomeComponent ,children:[
+  { path: "user", component: HomeComponent ,canActivate:[AuthGuard]
+  ,children:[
     {path:"addfriend",component:AddfriendComponent},
     {path:"friends",component:FriendlistComponent},
     { path: "drive", component: ProfileComponent },

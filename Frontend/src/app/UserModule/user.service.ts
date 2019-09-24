@@ -33,4 +33,10 @@ unFriend(id: any) {
   });
 }
 
+getCurrentUser():Observable<any>{
+return this.http.get(this.url+"dashboard")
+}
+
+
+
 }

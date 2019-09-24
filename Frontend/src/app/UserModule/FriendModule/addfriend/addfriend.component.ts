@@ -19,7 +19,7 @@ export class AddfriendComponent implements OnInit {
   private showFriend = false;
   ngOnInit() {
 
-    this.onFindFriend()
+    // this.onFindFriend()
     this.api.getReguser().subscribe(res => {
       this.users = res;
     });

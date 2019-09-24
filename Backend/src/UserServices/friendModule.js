@@ -1,39 +1,39 @@
 const User = require("./userModel");
-exports.get_friend = (req, res, next) => {
-    if (req.body.email === null) {
-      return res.status(400).send("Please Enter Email Address");
-    } else if (req.email === req.body.email) {
-      return res.status(400).send("You can not send Request to yourself");
-    } else {
-      User.findOne({ email: req.body.email })
-        .populate("receivedRequests friends sentRequests")
-        .select("firstname lastname email _id mobile")
-        .exec()
-        .then(user => {
-          if (user.length < 1) {
-            return res.status(404).send("Not a Registered User");
-          }
+// exports.get_friend = (req, res, next) => {
+//     if (req.body.email === null) {
+//       return res.status(400).send("Please Enter Email Address");
+//     } else if (req.email === req.body.email) {
+//       return res.status(400).send("You can not send Request to yourself");
+//     } else {
+//       User.findOne({ email: req.body.email })
+//         .populate("receivedRequests friends sentRequests")
+//         .select("firstname lastname email _id mobile")
+//         .exec()
+//         .then(user => {
+//           if (user.length < 1) {
+//             return res.status(404).send("Not a Registered User");
+//           }
   
-          alreadyFriend = false;
+//           alreadyFriend = false;
   
-          for (af of user.friends) {
-            if (af._id == req._id) {
-              alreadyFriend = true;
-              return res.status(401).send("We Are Already Friends");
-            }
-          }
-          if (!alreadyFriend) {
-            res.status(200).send(user);
-          }
-        })
-        .catch(err => {
-          return res.status(500).send("Not a Registered User");
-        });
-    }
-  };
+//           for (af of user.friends) {
+//             if (af._id == req._id) {
+//               alreadyFriend = true;
+//               return res.status(401).send("We Are Already Friends");
+//             }
+//           }
+//           if (!alreadyFriend) {
+//             res.status(200).send(user);
+//           }
+//         })
+//         .catch(err => {
+//           return res.status(500).send("Not a Registered User");
+//         });
+//     }
+//   };
   
   exports.post_friend_request = (req, res, next) => {
-    // console.log(req.body.email, req._id);
+    console.log(req.body.email, req._id);
     User.findOne({ _id: req.body._id })
       .populate("receivedRequests friends sentRequests")
       .exec()
@@ -82,109 +82,109 @@ exports.get_friend = (req, res, next) => {
       });
   };
   
-  exports.post_accept_friend_requests = (req, res, next) => {
-    console.log(req.email, req.body.id);
-    User.findById(req._id)
-      .exec()
-      .then(user => {
-        // for (let friend of user.friends) {
-        //   if()
-        // }
-        User.updateOne(
-          { _id: user._id },
-          { $pull: { receivedRequests: req.body.id } }
-        ).then(friendRequestRemoved => {
-          User.updateOne(
-            { _id: user._id },
-            { $push: { friends: req.body.id } }
-          ).then(senderAdded => {
-            User.updateOne(
-              { _id: req.body.id },
-              { $pull: { sentRequests: req._id } }
-            ).then(sentRequestRemoved => {
-              User.updateOne(
-                { _id: req.body.id },
-                { $push: { friends: user._id } }
-              ).then(friendAdded => {
-                res.status(200).send(user);
-              });
-            });
-          });
-        });
-      })
-      .catch(err => {
-        return res.status(400).send(err);
-      });
-  };
+  // exports.post_accept_friend_requests = (req, res, next) => {
+  //   console.log(req.email, req.body.id);
+  //   User.findById(req._id)
+  //     .exec()
+  //     .then(user => {
+  //       // for (let friend of user.friends) {
+  //       //   if()
+  //       // }
+  //       User.updateOne(
+  //         { _id: user._id },
+  //         { $pull: { receivedRequests: req.body.id } }
+  //       ).then(friendRequestRemoved => {
+  //         User.updateOne(
+  //           { _id: user._id },
+  //           { $push: { friends: req.body.id } }
+  //         ).then(senderAdded => {
+  //           User.updateOne(
+  //             { _id: req.body.id },
+  //             { $pull: { sentRequests: req._id } }
+  //           ).then(sentRequestRemoved => {
+  //             User.updateOne(
+  //               { _id: req.body.id },
+  //               { $push: { friends: user._id } }
+  //             ).then(friendAdded => {
+  //               res.status(200).send(user);
+  //             });
+  //           });
+  //         });
+  //       });
+  //     })
+  //     .catch(err => {
+  //       return res.status(400).send(err);
+  //     });
+  // };
   
-  exports.post_cancel_friend_requests = (req, res, next) => {
-    // console.log(req.body.id, req._id);
-    User.findById(req._id)
-      .exec()
-      .then(sender => {
-        // console.log(sender);
-        User.updateOne(
-          { _id: sender._id },
-          { $pull: { sentRequests: req.body.id } }
-        ).then(senderUpdated => {
-          console.log("sender updated");
-          User.updateOne(
-            { _id: req.body.id },
-            { $pull: { receivedRequests: sender._id } }
-          ).then(friendUpdated => {
-            console.log("friend updated");
-            res.status(200).send(sender);
-          });
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        return res.status(400).send(err);
-      });
-  };
-  exports.post_reject_friend_requests = (req, res, next) => {
-    // console.log(req.body.id, req._id);
-    User.findById(req._id)
-      .exec()
-      .then(sender => {
-        // console.log(sender);
-        User.updateOne(
-          { _id: sender._id },
-          { $pull: { receivedRequests: req.body.id } }
-        ).then(senderUpdated => {
-          console.log("sender updated");
-          User.updateOne(
-            { _id: req.body.id },
-            { $pull: { sentRequests: sender._id } }
-          ).then(friendUpdated => {
-            console.log("friend updated");
-            res.status(200).send(sender);
-          });
-        });
-      })
-      .catch(err => {
-        console.log(err);
-        return res.status(400).send(err);
-      });
-  };
+  // exports.post_cancel_friend_requests = (req, res, next) => {
+  //   // console.log(req.body.id, req._id);
+  //   User.findById(req._id)
+  //     .exec()
+  //     .then(sender => {
+  //       // console.log(sender);
+  //       User.updateOne(
+  //         { _id: sender._id },
+  //         { $pull: { sentRequests: req.body.id } }
+  //       ).then(senderUpdated => {
+  //         console.log("sender updated");
+  //         User.updateOne(
+  //           { _id: req.body.id },
+  //           { $pull: { receivedRequests: sender._id } }
+  //         ).then(friendUpdated => {
+  //           console.log("friend updated");
+  //           res.status(200).send(sender);
+  //         });
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       return res.status(400).send(err);
+  //     });
+  // };
+  // exports.post_reject_friend_requests = (req, res, next) => {
+  //   // console.log(req.body.id, req._id);
+  //   User.findById(req._id)
+  //     .exec()
+  //     .then(sender => {
+  //       // console.log(sender);
+  //       User.updateOne(
+  //         { _id: sender._id },
+  //         { $pull: { receivedRequests: req.body.id } }
+  //       ).then(senderUpdated => {
+  //         console.log("sender updated");
+  //         User.updateOne(
+  //           { _id: req.body.id },
+  //           { $pull: { sentRequests: sender._id } }
+  //         ).then(friendUpdated => {
+  //           console.log("friend updated");
+  //           res.status(200).send(sender);
+  //         });
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       return res.status(400).send(err);
+  //     });
+  // };
   
-  exports.post_unfriend = (req, res, next) => {
-    User.findById(req._id)
-      .exec()
-      .then(user => {
-        User.updateOne(
-          { _id: user._id },
-          { $pull: { friends: req.body.id } }
-        ).then(userUpdated => {
-          User.updateOne(
-            { _id: req.body.id },
-            { $pull: { friends: user._id } }
-          ).then(friendUpdated => {
-            res.status(200).send(user);
-          });
-        });
-      })
-      .catch(err => {
-        return res.status(400).send(err);
-      });
-  };
+  // exports.post_unfriend = (req, res, next) => {
+  //   User.findById(req._id)
+  //     .exec()
+  //     .then(user => {
+  //       User.updateOne(
+  //         { _id: user._id },
+  //         { $pull: { friends: req.body.id } }
+  //       ).then(userUpdated => {
+  //         User.updateOne(
+  //           { _id: req.body.id },
+  //           { $pull: { friends: user._id } }
+  //         ).then(friendUpdated => {
+  //           res.status(200).send(user);
+  //         });
+  //       });
+  //     })
+  //     .catch(err => {
+  //       return res.status(400).send(err);
+  //     });
+  // };

@@ -19,22 +19,26 @@ export class AuthorizeService {
 
   authenticate(loginData: any): Observable<any> {
     return this.http
-      .post<{ logintoken: string }>(this.url + "/login", loginData)
-      .pipe(
-        map(result => {
-          localStorage.setItem(
-            "access_token",
-            JSON.stringify(result.logintoken)
-          );
-
-          return true;
-        })
-      );
-  }
+      .post<{ logintoken: any }>(this.url + "/login", loginData)
+      }
+  
+  
+  
+  
+      //Get current uer
+public get currentUserValue(): any {
+  return this.currentUserSubject.value;
+}
 
   logout() {
-    localStorage.removeItem("access_token");
+    localStorage.clear()
   }
+
+  getToken(){
+  
+  return localStorage.getItem("access_token")
+  
+}
 
   public get loggedIn(): boolean {
     return localStorage.getItem("access_token") !== null;

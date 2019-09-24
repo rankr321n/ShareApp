@@ -4,6 +4,8 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   authenticate: function(req, res) {
+    // console.log("Auth server");
+    
     registerModel.findOne(
       {
         email: req.body.email
@@ -12,32 +14,30 @@ module.exports = {
       async function(err, user) {
         if (!user)
           return (
-            err, res.status(400).send({ msg: "User is not registered with us" })
+             res.status(400).send({ msg: "User is not registered with us" })
           );
         else {
+         
+          
           const isMatch = await bcrypt.compare(
             req.body.password,
             user.password
           );
-          const payload = { id: user.id, role: user.role };
-          const secretKey = "!wRaPcoDe";
-          const options = { issuer: "Randhir", expiresIn: "1m" };
+          const payload = { id: user.id, email: user.email };
+          const secretKey = "verify";
+          const options = { issuer: "Randhir", expiresIn: "10m" };
           const logintoken = jwt.sign(payload, secretKey, options);
-          if ((user, isMatch && !user.isVerified)) {
-            registerModel.updateOne(
-              { email: user.email },
-              { $set: { logintoken: logintoken } },
-              err => {
-                if (err) {
-                  return err;
-                }
-              }
-            );
-            res.status(401).send({ msg: "User is not verified" });
-          }
-          res.status(200).send({ logintoken });
-        }
-      }
-    );
-  }
-};
+        
+          
+
+          if(user.isVerified,user,isMatch)
+{
+
+  res.status(201).json(logintoken)
+
+}         
+          
+        
+        
+        
+        }})}}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { UserService } from "../user.service";
+// import { UserService } from "../user.service";
+import { AuthorizeService } from 'src/app/auth/authorize.service';
 
 @Component({
   selector: "app-user-header",
@@ -7,7 +8,7 @@ import { UserService } from "../user.service";
   styleUrls: ["./user-header.component.css"]
 })
 export class UserHeaderComponent implements OnInit {
-  constructor(private api: UserService) {}
+  constructor(private api:AuthorizeService) {}
   userdata = "";
   ngOnInit() {}
 }

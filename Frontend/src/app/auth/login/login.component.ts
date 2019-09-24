@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthorizeService } from "../authorize.service";
 import { first } from "rxjs/operators";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -12,15 +12,23 @@ import { Router } from "@angular/router";
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
-  error: string;
+  error: '';
   role: any;
+  loading = false;
+  returnUrl: string;
+ 
+
   constructor(
     private fb: FormBuilder,
     private auth: AuthorizeService,
-    private router: Router
+    private router: Router,private route: ActivatedRoute,
   ) {}
 
   ngOnInit() {
+
+     // get return url from route parameters or default to '/'
+    //  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    
     this.loginForm = this.fb.group({
       email: [
         "",
@@ -40,17 +48,15 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // stop here if form is invalid
-    if (this.loginForm.invalid) {
-      return;
-    }
-
     this.auth
-      .authenticate(this.loginForm.value)
-      .pipe(first())
-      .subscribe(
-        result => this.router.navigate(["/admin"]),
-        err => (this.error = "Could not authenticate")
-      );
-  }
+      .authenticate(this.loginForm.value) .subscribe(
+          data => {
+            localStorage.setItem("access_token",data)
+              this.router.navigate(['/user']);
+              console.log(data);
+              
+              
+         
+})
+}
 }
