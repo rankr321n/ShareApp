@@ -19,9 +19,7 @@ export class UserService {
     return this.http.get(this.url + "/getreguser");
   }
 
-searchFriend(data: any) {
-  return this.http.post(this.url+"/searchFriend",  data);
-}
+
 
 sendFriendRequest(data: any) {
   return this.http.post<any>(this.url+"/sendFriendRequest", data );
@@ -33,6 +31,10 @@ unFriend(id: any) {
   });
 }
 
+
+acceptFriendRequest(email:any,id:any){
+  return this.http.post<any>(this.url+"/acceptFriendRequest",email,id)
+}
 
 
 

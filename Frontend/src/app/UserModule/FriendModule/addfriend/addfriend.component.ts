@@ -14,7 +14,7 @@ export class AddfriendComponent implements OnInit {
   usersearch = "";
   
   private error = null;
-sent=false
+   sent:any
   // private friend = {};
   // private showFriend = false;
   ngOnInit() {
@@ -29,10 +29,7 @@ sent=false
     // console.log(this.friend);
     this.api.sendFriendRequest({email:email}).subscribe(
       res => {
-        if(res){
-this.sent=true
-
-        }
+        
 
       },
       err => {
@@ -44,4 +41,6 @@ this.sent=true
       }
     );
   }
+
+  
 }

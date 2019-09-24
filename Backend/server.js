@@ -51,7 +51,7 @@ app.use("/unblock", unblockControl.unblockUser);
 app.use("/getreguser", getUserForUser.getRegUserForuser); //get memberlist registered on app for user
 // app.use('/searchFriend', verify ,FriendRequest.get_friend)
 app.use('/sendFriendRequest',verify,FriendRequest.post_friend_request)
-app.use('/acceptFriend',verify,FriendRequest.post_accept_friend_requests)
+app.use('/acceptFriendRequest',verify,FriendRequest.post_accept_friend_requests)
 
 // app.use('/cancelRequest',verify,FriendRequest.post_cancel_friend_requests)
 // app.use('/unfriend',verify,FriendRequest.post_unfriend)

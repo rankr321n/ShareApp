@@ -32,7 +32,7 @@ module.exports = {
          
 
 
-         if(user.isVerified,isMatch)
+         if(user.isVerified&&isMatch)
 {
 
   res.status(201).json(logintoken)

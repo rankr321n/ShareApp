@@ -10,7 +10,7 @@ import { AdminService } from "../admin.service";
 export class UserManagementComponent implements OnInit {
   users: any = [];
   response: any;
-  alert: string;
+  alert:any
   managebutton: any
   constructor(private user: AdminService) { }
 
@@ -36,7 +36,7 @@ export class UserManagementComponent implements OnInit {
 
       this.response = res.msg;
 
-      this.alert = "true";
+      this.alert = !this.alert;
 
       // window.alert(res.msg);
     });
@@ -47,7 +47,7 @@ export class UserManagementComponent implements OnInit {
 
       this.response = res.msg;
 
-      this.alert = "false";
+      this.alert =!this.alert
 
     });
   }

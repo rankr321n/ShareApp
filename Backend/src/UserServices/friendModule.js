@@ -87,7 +87,7 @@ const User = require("./userModel");
   };
   
   exports.post_accept_friend_requests = (req, res, next) => {
-    // console.log(req.email, req.body.id);
+    console.log(req.email, req.body.id);
     User.findById(req._id)
       .exec()
       .then(user => {

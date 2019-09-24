@@ -43,11 +43,9 @@
         </div>
 
         <!--  -->
+        <ng-container *ngFor="let item of users | search: usersearch;let i=index">
         
-        <div
-          *ngFor="let item of users | search: usersearch"
-          class="nearby-user"
-        >
+        <div class="nearby-user">
           <div class="row">
             <div class="col-md-2 col-sm-2">
               <img
@@ -69,10 +67,14 @@
             </div>
             <div class="col-md-3 col-sm-3">
               <button (click)="onSendRequest(item.email)" *ngIf="!sent" class="btn btn-primary pull-right">Add Friend</button>
-              <button *ngIf="sent"  disabled class="btn btn-success pull-right">RequestSent</button>
-            </div>
+              <!-- <button (click)="onSendRequest(item.email)" [ngClass]="{
+                'btn btn-primary':!sent ,
+                'btn btn-danger':sent} ">Addfriend</button> -->
+                
+              </div>
           </div>
         </div>
+      </ng-container>
         <!-- LoopEND -->
       </div>
     </div>
