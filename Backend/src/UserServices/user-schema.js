@@ -6,8 +6,8 @@ var userSchema = new mongoose.Schema({
     twitter: { type: String },
     linkedin: { type: String },
     
-    firstname: { type: String, required: true },
-    lastname: { type: String, required: true },
+    firstname: { type: String/* , required: true  */},
+    lastname: { type: String/* , required: true  */},
     // email: {
     //   type: String,
     //   required: true,

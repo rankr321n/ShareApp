@@ -37,8 +37,9 @@ const User = require("./userModel");
 
     if (req.email === req.body.email) {
             return res.status(404).send("You can not send Request to yourself")
+            
           }
-    User.findOne({ email:req.body.email })
+    User.findOne({ email:req.body.email,id:req.body.id })
       .populate("receivedRequests friends sentRequests")
       .exec()
       .then(friend => {
@@ -73,7 +74,7 @@ const User = require("./userModel");
                       firstname: friend.firstname,
                       lastname: friend.lastname,
                       email: friend.email,
-                      mobile: friend.mobile
+                      
                     };
                     res.status(200).send(response);
                   })
@@ -87,7 +88,7 @@ const User = require("./userModel");
   };
   
   exports.post_accept_friend_requests = (req, res, next) => {
-    console.log(req.email, req.body.id);
+    // console.log(req._id);
     User.findById(req._id)
       .exec()
       .then(user => {

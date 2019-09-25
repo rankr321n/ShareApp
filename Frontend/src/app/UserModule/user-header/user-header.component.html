@@ -1,3 +1,5 @@
+
+
 <div class="navbar navbar-fixed-top header ">
     <div class="col-md-12">
         <div class="navbar-header">
@@ -34,7 +36,7 @@
             </li>
             <li>
                 <a data-toggle="dropdown" class="dropdown-toggle" id="btnToggle">
-                    <i style="color:blue" class="fa fa-user-plus bigger-120">Add friend</i
+                    <i style="color:blue" class="fa fa-user-plus bigger-120">FriendRequests</i
             ></a
           >
           <ul class="dropdown-menu">
@@ -58,7 +60,7 @@
                         </p>
                         <p>
                           <!-- <a href="#" class="btn btn-xs btn-default"><span class="glyphicon glyphicon-comment"></span> Message</a> -->
-                          <a (click)="acceptRequest(request.email,request.id)" class="btn btn-xs btn-default"
+                          <a (click)="acceptRequest(request._id)" class="btn btn-xs btn-default"
                             ><span class="glyphicon glyphicon-heart"></span>
                             Accept request</a
                           >

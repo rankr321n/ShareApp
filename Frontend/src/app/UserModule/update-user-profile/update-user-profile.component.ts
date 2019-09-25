@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../user.service';
+import { AuthorizeService } from 'src/app/auth/authorize.service';
 
 @Component({
   selector: 'app-update-user-profile',
@@ -9,14 +10,24 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UpdateUserProfileComponent implements OnInit {
 updateForm:FormGroup;
+defaultUserdata={}
 public imagePath;
   imgURL: any;
   public message: string;
-  id = this.actRoute.snapshot.params["id"];
-  constructor(private fb:FormBuilder ,private actRoute: ActivatedRoute,) { }
+  id:any
+  constructor(private fb:FormBuilder ,private auth: AuthorizeService,private userdetail:UserService) { }
   
   ngOnInit() {
-    
+
+
+    this.auth.getCurrentUser().subscribe(res=>{
+      this.id=res._id
+            })
+this.userdetail.ViewUserProfile(this.id).subscribe(res=>{
+  this.defaultUserdata=res
+  
+})
+
     
     this.updateForm=this.fb.group({
       image:[ Validators.required],
@@ -45,7 +56,13 @@ public imagePath;
     reader.onload = (_event) => { 
       this.imgURL = reader.result; 
     }
+
   }
+  updateUserDetails()
+{
+this.userdetail.UpdateProfile(this.id,this.updateForm.value).subscribe()
+}
+
 }
 
 

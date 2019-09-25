@@ -12,20 +12,24 @@ export class UserHeaderComponent implements OnInit {
   private loggedInUser = {};
   private receivedRequests: [];
   private totalRequests = 0;
+  private requesterid={}
   constructor(private api:AuthorizeService,private acc:UserService) {}
   
   ngOnInit() {
     this.api.getCurrentUser().subscribe(res=>{
       this.loggedInUser = res;
+     
       this.receivedRequests = this.loggedInUser["receivedRequests"].slice();
-
-      this.totalRequests = this.receivedRequests.length;
+         
+          this.totalRequests = this.receivedRequests.length;
         })
 
   }
 
-acceptRequest(email,requesterid){
-  this.acc.acceptFriendRequest(email,{id:requesterid}).subscribe(res=>{
+acceptRequest(requesterid){
+  console.log(requesterid);
+  this.acc.acceptFriendRequest({id:requesterid}).subscribe(res=>{
+    
     console.log(res);
     
   })

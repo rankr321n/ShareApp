@@ -19,26 +19,29 @@ export class UserService {
     return this.http.get(this.url + "/getreguser");
   }
 
+    sendFriendRequest(email: any,id:any) {
+      return this.http.post<any>(this.url+"/sendFriendRequest", email,id );
+    }
+// unFriend(id: any) {
+//   // console.log(id);
+//   return this.http.post<any>(this.url+"/unfriend", {
+//     id: id
+//   });
+// }
 
 
-sendFriendRequest(data: any) {
-  return this.http.post<any>(this.url+"/sendFriendRequest", data );
-}
-unFriend(id: any) {
-  // console.log(id);
-  return this.http.post<any>(this.url+"/unfriend", {
-    id: id
-  });
-}
-
-
-acceptFriendRequest(email:any,id:any){
-  return this.http.post<any>(this.url+"/acceptFriendRequest",email,id)
+acceptFriendRequest(id:any){
+  return this.http.post<any>(this.url+"/acceptFriendRequest",id)
 }
 
 
+UpdateProfile(id:any,data:any):Observable<any>{
+  
+return this.http.patch(this.url+"/update/",{id:id,data:data})
+}
 
-
-
+ViewUserProfile(id:any):Observable<any>{
+  return this.http.post(this.url+"/view/",{id:id})
+}
 
 }

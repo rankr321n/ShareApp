@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
+// import { Observable } from "rxjs";
 import { UserService } from "../../user.service";
 import { Router } from '@angular/router';
 
@@ -25,9 +25,9 @@ export class AddfriendComponent implements OnInit {
     });
   }
  
-  onSendRequest(email) {
+  onSendRequest(email,id:any) {
     // console.log(this.friend);
-    this.api.sendFriendRequest({email:email}).subscribe(
+    this.api.sendFriendRequest({email:email},id).subscribe(
       res => {
         
 

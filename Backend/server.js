@@ -17,6 +17,8 @@ var unblockControl = require("./src/AdminManagement/unblock-access");
 var FriendRequest=require('./src/UserServices/friendModule')
 var verify=require('./src/auth/verify')
 var dashboard=require('./src/auth/getLoggedInUser')
+var update=require('./src/UserServices/updateUser')
+
 
 mongoose.connect("mongodb://localhost:27017/shareApp", {
     useNewUrlParser: true,
@@ -52,6 +54,11 @@ app.use("/getreguser", getUserForUser.getRegUserForuser); //get memberlist regis
 // app.use('/searchFriend', verify ,FriendRequest.get_friend)
 app.use('/sendFriendRequest',verify,FriendRequest.post_friend_request)
 app.use('/acceptFriendRequest',verify,FriendRequest.post_accept_friend_requests)
+// app.use('/view',)
+app.use('/update/',verify,update.UpdateUserDetails)
+app.use("/view",verify,update.ViewUserDetails)
+
+
 
 // app.use('/cancelRequest',verify,FriendRequest.post_cancel_friend_requests)
 // app.use('/unfriend',verify,FriendRequest.post_unfriend)

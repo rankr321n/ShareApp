@@ -7,23 +7,19 @@
                     <div class="user-info">
                         <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                         <ul class="meta list list-unstyled">
-                            <li class="name">Rebecca Sanders
+                            <li class="name">{{defaultUserdata.name}}
                                 <label class="label label-info">UX Designer</label>
                             </li>
-                            <li class="email"><a href="#">Rebecca.S@website.com</a></li>
+                            <li class="email"><a >{{defaultUserdata.email}}</a></li>
                             <li class="activity">Last logged in: Today at 2:18pm</li>
                         </ul>
                     </div>
             		<nav class="side-menu">
         				<ul class="nav">
-        					<li class="active"><a href="#"><span class="fa fa-user"></span> Profile</a></li>
-        					<li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
-        					<li><a href="#"><span class="fa fa-credit-card"></span> Billing</a></li>
-        					<li><a href="#"><span class="fa fa-envelope"></span> Messages</a></li>
-        					
-        					<li><a href="user-drive.html"><span class="fa fa-th"></span> Drive</a></li>
-        					<li><a href="#"><span class="fa fa-clock-o"></span> Reminders</a></li>
-        				</ul>
+        					<li ><a routerLink="/user/viewprofile"><span class="fa fa-user"></span> Profile</a></li>
+        					<li class="active"><a ><span class="fa fa-edit"></span> Edit Profile</a></li>
+        					<li><a routerLink="/user/drive"><span class="fa fa-th"></span> Drive</a></li>
+        					</ul>
         			</nav>
                 </div>
                 <div class="content-panel">
@@ -88,7 +84,7 @@
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input disabled="!updateForm.valid" class="btn btn-primary" type="submit" value="Update Profile">
+                                <input (click)="updateUserDetails()" class="btn btn-primary" type="submit" value="Update Profile">
                             </div>
                         </div>
                     </form>

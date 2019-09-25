@@ -7,22 +7,19 @@
                     <div class="user-info">
                         <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                         <ul class="meta list list-unstyled">
-                            <li class="name">Rebecca Sanders
-                                <label class="label label-info">UX Designer</label>
+                            <li class="name">{{userdata.username}}
+                                <label class="label label-info">Mean Stack Developer</label>
                             </li>
-                            <li class="email"><a href="#">Rebecca.S@website.com</a></li>
+                            <li class="email"><a href="#">{{userdata.email}}</a></li>
                             <li class="activity">Last logged in: Today at 2:18pm</li>
                         </ul>
                     </div>
             		<nav class="side-menu">
         				<ul class="nav">
-        					<li class="active"><a href="#"><span class="fa fa-user"></span> Profile</a></li>
-        					<li><a href="#"><span class="fa fa-cog"></span> Settings</a></li>
-        					<li><a href="#"><span class="fa fa-credit-card"></span> Billing</a></li>
-        					<li><a href="#"><span class="fa fa-envelope"></span> Messages</a></li>
+        					<li class="active"><a ><span class="fa fa-user"></span> Profile</a></li>
+        					<li><a routerLink="/user/updateprofile"><span class="fa fa-edit"></span> Edit Profile</a></li>
+        			<li><a routerLink="/user/drive"><span class="fa fa-th"></span> Drive</a></li>
         					
-        					<li><a href="user-drive.html"><span class="fa fa-th"></span> Drive</a></li>
-        					<li><a href="#"><span class="fa fa-clock-o"></span> Reminders</a></li>
         				</ul>
         			</nav>
                 </div>
@@ -36,27 +33,25 @@
                                     <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
                                 </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                    <input type="file" class="file-uploader pull-left">
-                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
-                                </div>
+                                                      </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" disabled class="form-control" value="Rebecca">
+                                    <input type="text" value="{{userdata.username}}"disabled class="form-control" value="Rebecca">
                                 </div>
                             </div>
         
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" disabled class="form-control" value="Rebecca">
+                                    <input type="text" value="{{userdata.firstname}}" disabled class="form-control">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" disabled class="form-control" value="Sanders">
+                                    <input type="text"value="{{userdata.firstname}}" disabled class="form-control">
                                 </div>
                             </div>
                         </fieldset>
@@ -65,30 +60,28 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="email" disabled class="form-control" value="Rebecca@website.com">
+                                    <input type="email" disabled class="form-control" value="{{userdata.email}}">
                                     <p class="help-block">This is the email </p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="text" disabled class="form-control" value="SpeedyBecky">
+                                    <input type="text" disabled class="form-control"value="{{userdata.twitter}}">
                                     <p class="help-block">Your twitter username</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Linkedin</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input type="url" disabled class="form-control" value="https://www.linkedin.com/in/lorem">
+                                    <input type="url" disabled class="form-control" value="{{userdata.linkedin}}">
                                     <p class="help-block">eg. https://www.linkedin.com/in/yourname</p>
                                 </div>
                             </div>
                         </fieldset>
                         <hr>
                         <div class="form-group">
-                            <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input class="btn btn-primary" type="submit" routerLink="/user/updateprofile/:id" value="Update Profile">
-                            </div>
+                           
                         </div>
                     </form>
                 </div>

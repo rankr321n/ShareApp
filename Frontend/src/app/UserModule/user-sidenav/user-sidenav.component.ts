@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { AuthorizeService } from 'src/app/auth/authorize.service';
 
 @Component({
   selector: 'app-user-sidenav',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-sidenav.component.css']
 })
 export class UserSidenavComponent implements OnInit {
-
-  constructor() { }
+ id:any
+  constructor(private auth:AuthorizeService ) { }
 
   ngOnInit() {
+
+    
   }
 
 }
