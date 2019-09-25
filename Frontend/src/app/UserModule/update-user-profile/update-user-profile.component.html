@@ -34,26 +34,26 @@
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
                                     <input   #file (change)="preview(file.files)" type="file"  enctype="multipart/form-data" accept='image/*' class="file-uploader pull-left">
                                     <p *ngIf="message" class="pl-4 align-middle mb-0">{{message}}</p>
-                                    <!-- <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button> -->
+                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">User Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input formControlName="username" type="text" class="form-control" value="Rebecca">
+                                    <input [(ngModel)]="defaultUserdata.username" formControlName="username" type="text" class="form-control" >
                                 </div>
                             </div>
         
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">First Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input formControlName="firstname" type="text" class="form-control" value="Rebecca">
+                                    <input [(ngModel)]="defaultUserdata.firstname"formControlName="firstname" type="text" class="form-control" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2 col-sm-3 col-xs-12 control-label">Last Name</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input formControlName="lastname" type="text" class="form-control" value="Sanders">
+                                    <input [(ngModel)]="defaultUserdata.lastname"formControlName="lastname" type="text" class="form-control" >
                                 </div>
                             </div>
                         </fieldset>
@@ -62,21 +62,21 @@
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Email</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input formControlName="email" type="email" class="form-control" value="Rebecca@website.com">
+                                    <input [(ngModel)]="defaultUserdata.email"formControlName="email" type="email" class="form-control" >
                                     <p class="help-block">This is the email </p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Twitter</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12">
-                                    <input formControlName="twitter" type="text" class="form-control" value="SpeedyBecky">
+                                    <input [(ngModel)]="defaultUserdata.twitter"formControlName="twitter" type="text" class="form-control" >
                                     <p class="help-block">Your twitter username</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-md-2  col-sm-3 col-xs-12 control-label">Linkedin</label>
                                 <div class="col-md-10 col-sm-9 col-xs-12 ">
-                                    <input formControlName="linkedin" type="url" class="form-control" value="https://www.linkedin.com/in/lorem">
+                                    <input [(ngModel)]="defaultUserdata.linkedin" formControlName="linkedin" type="url" class="form-control" >
                                     <p class="help-block">eg. https://www.linkedin.com/in/yourname</p>
                                 </div>
                             </div>

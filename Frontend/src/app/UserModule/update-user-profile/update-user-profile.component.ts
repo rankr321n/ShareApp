@@ -25,6 +25,7 @@ public imagePath;
             })
 this.userdetail.ViewUserProfile(this.id).subscribe(res=>{
   this.defaultUserdata=res
+  // console.log(res);
   
 })
 
