@@ -6,14 +6,9 @@ import { map } from "rxjs/operators";
   providedIn: "root"
 })
 export class AuthorizeService {
-  private currentUserSubject: BehaviorSubject<any>;
-  public currentUser: Observable<any>;
-
+  CurrentUserChanged = new BehaviorSubject<String>(null);
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<any>(
-      JSON.parse(localStorage.getItem("currentUser"))
-    );
-    this.currentUser = this.currentUserSubject.asObservable();
+    
   }
   url = "http://localhost:3000";
 
@@ -22,14 +17,6 @@ export class AuthorizeService {
       .post<{ logintoken: any }>(this.url + "/login", loginData)
       }
   
-  
-  
-  
-      //Get current uer
-public get currentUserValue(): any {
-  return this.currentUserSubject.value;
-}
-
   logout() {
     localStorage.clear()
   }

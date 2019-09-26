@@ -13,12 +13,14 @@ export class UserHeaderComponent implements OnInit {
   private receivedRequests: [];
   private totalRequests = 0;
   private requesterid={}
+
+  CurrentUser:any
   constructor(private api:AuthorizeService,private acc:UserService) {}
   
   ngOnInit() {
     this.api.getCurrentUser().subscribe(res=>{
       this.loggedInUser = res;
-     
+    
       this.receivedRequests = this.loggedInUser["receivedRequests"].slice();
          
           this.totalRequests = this.receivedRequests.length;
