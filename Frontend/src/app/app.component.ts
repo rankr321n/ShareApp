@@ -10,5 +10,8 @@ import { AuthorizeService } from "./auth/authorize.service";
 export class AppComponent implements OnInit {
   title = "ShareApp";
   constructor(private router: Router, private auth: AuthorizeService) {}
-  ngOnInit(): void {}
+  ngOnInit(){
+
+
+  }
 }

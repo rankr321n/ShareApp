@@ -10,13 +10,15 @@ module.exports = (req, res, next) => {
   }
   const token = req.headers.authorization.split(" ")[1];
   // console.log("token",token);
+
+
   if (token === "null") {
     return res.status(401).send("Unauthorized request");
   }
   const payload = jwt.verify(token, "verify", (err, res) => {
     if (err) {
       console.log("err", err.message);
-      // console.log(process.env.JWT_KEY);
+     
       return
       // return res.status(401).send("Unauthorized request");
     }

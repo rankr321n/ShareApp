@@ -27,15 +27,15 @@ module.exports = {
           const secretKey = "verify";
           const options = { issuer: "Randhir", expiresIn: "1h" };
           const logintoken = jwt.sign(payload, secretKey, options);
-        
+        const role=user.role
          
          
 
 
-         if(user.isVerified&&isMatch)
+         if(user.isVerified&&isMatch&&role)
 {
 
-  res.status(201).json(logintoken)
+  res.status(201).json({logintoken,role})
 
 }         
           

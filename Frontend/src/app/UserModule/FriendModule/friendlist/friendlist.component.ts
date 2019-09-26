@@ -20,7 +20,7 @@ export class FriendlistComponent implements OnInit {
       
       this.friendlist = this.loggedInUser["friends"].slice();
         this.friendsdata=this.friendlist 
-        console.log(this.friendsdata);
+        // console.log(this.friendsdata);
         
       this.totalfriends = this.friendlist.length;
 

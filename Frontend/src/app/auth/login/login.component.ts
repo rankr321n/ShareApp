@@ -26,6 +26,13 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
 
+this.auth.currentUserChanged.subscribe(user=>{
+  if(user){
+    this.role=user.role
+  }
+  this.role=null
+})
+
      // get return url from route parameters or default to '/'
     //  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     
@@ -48,15 +55,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    this.auth
-      .authenticate(this.loginForm.value) .subscribe(
-          data => {
-            localStorage.setItem("access_token",data)
-              this.router.navigate(['/user']);
-              // console.log(data);
-              
-              
-         
-})
+    this.auth.authenticate(this.loginForm.value)
+          
 }
 }

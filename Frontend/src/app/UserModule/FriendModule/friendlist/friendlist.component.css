@@ -4,7 +4,9 @@
 #team {
     background: #eee !important;
 }
-
+.h1{
+    margin: 52px
+}
 .btn-primary:hover,
 .btn-primary:focus {
     background-color: #108d6f;
