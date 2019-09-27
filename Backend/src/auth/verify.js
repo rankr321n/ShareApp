@@ -15,7 +15,7 @@ module.exports = (req, res, next) => {
   if (token === "null") {
     return res.status(401).send("Unauthorized request");
   }
-  const payload = jwt.verify(token, "verify", (err, res) => {
+  const payload = jwt.verify(token, "verify", (err, resp) => {
     if (err) {
       console.log("err", err.message);
      
@@ -23,8 +23,32 @@ module.exports = (req, res, next) => {
       // return res.status(401).send("Unauthorized request");
     }
     // console.log("res", res);
-    req.email = res.email;
-    req._id = res.id;
+    req.email = resp.email;
+    req._id = resp.id;
     next();
   });
 };
+
+  
+// const jwt = require("jsonwebtoken");
+
+// module.exports = (req, res, err,next) => {
+//   // console.log(req.headers.authorization);
+//   if (!req.headers.authorization) {
+//     return res.status(401).send("Unauthorized request");
+//   }
+//   const token = req.headers.authorization.split(" ")[1];
+//   // console.log(token);
+//   if (token === "null") {
+//     return res.status(401).send("Unauthorized request");
+//   }
+//   const payload = jwt.verify(token, "verify") 
+//     if (err) {
+//       // console.log("err", err);
+//       return res.status(401).send("Unauthorized request");
+//     }
+//     // console.log("res", res);
+//     req.email = res.email;
+//     req._id = res.userId;
+//     next();
+//   };

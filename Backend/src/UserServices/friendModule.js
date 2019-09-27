@@ -43,11 +43,21 @@ const User = require("./userModel");
       .populate("receivedRequests friends sentRequests")
       .exec()
       .then(friend => {
+        alreadyFriend = false;
+  
+          for (af of friend.friends) {
+            if (af._id == req._id) {
+              alreadyFriend = true;
+              return res.status(401).send("We Are Already Friends");
+            }
+          }
+          if (!alreadyFriend) {
+           
+        
         alreadySent = false;
-        // console.log(friend)
         for (f of friend.receivedRequests) {
-          if (f.email === req.email) {
-            alreadySent = true;
+          if (f.email === req.email &&f._id) {
+                       alreadySent = true;
             return res.status(400).send("Request Already Sent");
           }}
         
@@ -84,7 +94,7 @@ const User = require("./userModel");
               });
           });
         }
-      });
+       } });
   };
   
   exports.post_accept_friend_requests = (req, res, next) => {

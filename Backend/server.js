@@ -50,7 +50,7 @@ app.use("/unblock", unblockControl.unblockUser);
 
 //User Routes
 //FriendsModule Routes
-app.use("/getreguser", getUserForUser.getRegUserForuser); //get memberlist registered on app for user
+app.use("/getreguser",verify, getUserForUser.getRegUserForuser); //get memberlist registered on app for user
 // app.use('/searchFriend', verify ,FriendRequest.get_friend)
 app.use('/sendFriendRequest',verify,FriendRequest.post_friend_request)
 app.use('/acceptFriendRequest',verify,FriendRequest.post_accept_friend_requests)

@@ -10,10 +10,11 @@ exports.get_loggedIn_user = (req, res, next) => {
         return res.status(404).send("user not found");
       }
       const response = {
+        username:user.username,
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
-        // mobile: user.mobile,
+       
         role: user.role,
         friends: user.friends,
         receivedRequests: user.receivedRequests,

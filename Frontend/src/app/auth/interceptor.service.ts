@@ -23,7 +23,7 @@ export class InterceptorService implements HttpInterceptor {
     });
     return next.handle(tokenizedRequest).pipe(
       catchError( (error) => {
-        console.log(error);
+        console.log("error INterceptor",error);
         return throwError(error);
    })
  );
