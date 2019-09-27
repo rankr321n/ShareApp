@@ -63,7 +63,9 @@ this.userdetail.ViewUserProfile(this.id).subscribe(res=>{
 {
 this.userdetail.UpdateProfile(this.id,this.updateForm.value).subscribe()
 }
-
+updateImage(){
+  
+}
 }
 
 

@@ -34,7 +34,7 @@
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
                                     <input   #file (change)="preview(file.files)" type="file"  enctype="multipart/form-data" accept='image/*' class="file-uploader pull-left">
                                     <p *ngIf="message" class="pl-4 align-middle mb-0">{{message}}</p>
-                                    <button type="submit" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                    <button type="submit" (click)="updateImage()" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
                                 </div>
                             </div>
                             <div class="form-group">
