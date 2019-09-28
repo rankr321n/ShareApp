@@ -23,8 +23,11 @@ module.exports = (req, res, next) => {
       // return res.status(401).send("Unauthorized request");
     }
     // console.log("res", res);
+    // console.log("MIDDLEWARE",req.params.filename);
+    
     req.email = resp.email;
     req._id = resp.id;
+   req.body.filename=req.params.filename
     next();
   });
 };

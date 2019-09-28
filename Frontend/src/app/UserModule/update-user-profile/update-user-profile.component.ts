@@ -56,6 +56,7 @@ this.userdetail.ViewUserProfile(this.id).subscribe(res=>{
     reader.readAsDataURL(files[0]); 
     reader.onload = (_event) => { 
       this.imgURL = reader.result; 
+      
     }
 
   }
@@ -64,7 +65,7 @@ this.userdetail.ViewUserProfile(this.id).subscribe(res=>{
 this.userdetail.UpdateProfile(this.id,this.updateForm.value).subscribe()
 }
 updateImage(){
-  
+
 }
 }
 

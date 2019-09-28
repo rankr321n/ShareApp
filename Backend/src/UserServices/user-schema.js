@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var userSchema = new mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  image: { type: Array },
+  image: { type: String },
     username: { type: String },
     twitter: { type: String },
     linkedin: { type: String },

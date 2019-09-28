@@ -2,7 +2,7 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 var cors = require("cors");
-const router = express.Router();
+// const router = express.Router();
 require("dotenv").config();
 
 var port = 3000;
@@ -18,7 +18,7 @@ var FriendRequest=require('./src/UserServices/friendModule')
 var verify=require('./src/auth/verify')
 var dashboard=require('./src/auth/getLoggedInUser')
 var update=require('./src/UserServices/updateUser')
-
+var imageupdate=require('./src/UserServices/userprofileImageupdate')
 
 mongoose.connect("mongodb://localhost:27017/shareApp", {
     useNewUrlParser: true,
@@ -29,11 +29,11 @@ mongoose.connect("mongodb://localhost:27017/shareApp", {
 var app = express();
 app.use(cors());
 app.use(bodyParser.json());
-router.use(
-    bodyParser.urlencoded({
-        extended: false
-    })
-);
+// router.use(
+//     bodyParser.urlencoded({
+//         extended: false
+//     })
+// );
 //Shared Routes
 app.use("/login", authenticationControl.authenticate);
 
@@ -57,11 +57,8 @@ app.use('/acceptFriendRequest',verify,FriendRequest.post_accept_friend_requests)
 // app.use('/view',)
 app.use('/update/',verify,update.UpdateUserDetails)
 app.use("/view",verify,update.ViewUserDetails)
-
-
-
-// app.use('/cancelRequest',verify,FriendRequest.post_cancel_friend_requests)
-// app.use('/unfriend',verify,FriendRequest.post_unfriend)
+app.use('/upload',verify,imageupdate)
+app.use('/image/:filename',verify,imageupdate)
 
 
 app.listen(port, function() {
