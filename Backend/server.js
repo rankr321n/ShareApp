@@ -43,7 +43,7 @@ app.use("/register", regcont.signupPost);
 app.use("/termsandconditions", terms.getTerms);
 
 //Admin routes
-app.use("/getuser", getUserDataForAdmin.getUser);
+app.use("/getuser",verify, getUserDataForAdmin.getUser);
 app.use("/terms", termController.terms);
 app.use("/block", blockUserControl.blockUser);
 app.use("/unblock", unblockControl.unblockUser);
@@ -57,8 +57,8 @@ app.use('/acceptFriendRequest',verify,FriendRequest.post_accept_friend_requests)
 // app.use('/view',)
 app.use('/update/',verify,update.UpdateUserDetails)
 app.use("/view",verify,update.ViewUserDetails)
-app.use('/upload',verify,imageupdate)
-app.use('/image/:filename',verify,imageupdate)
+app.use('/upload',imageupdate)
+app.use('/',imageupdate)
 
 
 app.listen(port, function() {

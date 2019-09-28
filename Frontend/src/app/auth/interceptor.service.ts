@@ -21,15 +21,8 @@ export class InterceptorService implements HttpInterceptor {
         Authorization: `Bearer ${authService.getToken()}`
       }
     });
-    return next.handle(tokenizedRequest).pipe(
-      catchError( (error) => {
-        console.log("error INterceptor",error);
-        return throwError(error);
-   })
- );
-  
-
-
+    return next.handle(tokenizedRequest)
+    
 }
 }
 

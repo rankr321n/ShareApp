@@ -25,7 +25,7 @@ module.exports = {
           );
           const payload = { id: user.id, email: user.email };
           const secretKey = "verify";
-          const options = { issuer: "Randhir", expiresIn: "1h" };
+          const options = { issuer: "Randhir", expiresIn: "5h" };
           const logintoken = jwt.sign(payload, secretKey, options);
         const role=user.role
          
@@ -38,10 +38,6 @@ module.exports = {
   res.status(201).json({logintoken,role})
 
 }         
-          
-            // res.status(401).json("You are unverified")
-          
-        
-        
-        
+            res.json("You are unverified")
+      
         }})}}

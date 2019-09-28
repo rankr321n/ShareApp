@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
           this.failed = true;
           return;
         }
-        // this.router.navigate(['complete'])
+        this.router.navigate(['complete'])
       });
     }
   }

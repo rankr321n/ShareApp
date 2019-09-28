@@ -14,8 +14,8 @@ exports.get_loggedIn_user = (req, res, next) => {
         firstname: user.firstname,
         lastname: user.lastname,
         email: user.email,
-       
-        role: user.role,
+       image:user.image,
+        // role: user.role,
         friends: user.friends,
         receivedRequests: user.receivedRequests,
         sentRequests: user.sentRequests,

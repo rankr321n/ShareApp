@@ -44,4 +44,13 @@ ViewUserProfile(id:any):Observable<any>{
   return this.http.post(this.url+"/view/",{id:id})
 }
 
+updateImage(image:any):Observable<any>{
+return this.http.post(this.url+"/upload",image)
+}
+
+viewImage(imagepath:any):Observable<any>{
+  // console.log(imagepath);
+  
+  return this.http.get(this.url+"/image/"+imagepath, { responseType: 'text' })
+}
 }

@@ -5,7 +5,9 @@
             <div class="module-inner">
                 <div class="side-bar">
                     <div class="user-info">
-                        <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                            <div *ngIf="imagePath">
+                        <img class="img-profile img-circle img-responsive center-block" src="http://localhost:3000/image/{{imagePath}}" alt="">
+                        </div>
                         <ul class="meta list list-unstyled">
                             <li class="name">{{userdata.username}}
                                 <label class="label label-info">Mean Stack Developer</label>
@@ -30,7 +32,9 @@
                             <h3 class="fieldset-title">Personal Info</h3>
                             <div class="form-group avatar">
                                 <figure class="figure col-md-2 col-sm-3 col-xs-12">
-                                    <img class="img-rounded img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                                        <div *ngIf="imagePath">
+                                    <img class="img-rounded img-responsive" src="http://localhost:3000/image/{{imagePath}}" alt="">
+                                        </div>
                                 </figure>
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
                                                       </div>

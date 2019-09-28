@@ -4,7 +4,7 @@ module.exports = (req, res, next) => {
 
   // console.log("M token verify karunga");
   
-  // console.log(req.headers.authorization);
+  // console.log("TOken",req.headers.authorization);
   if (!req.headers.authorization) {
     return res.status(401).send("Unauthorized request");
   }
@@ -19,15 +19,15 @@ module.exports = (req, res, next) => {
     if (err) {
       console.log("err", err.message);
      
-      return
-      // return res.status(401).send("Unauthorized request");
+      // return
+      return res.json({message:"Authentication Failure"});
     }
     // console.log("res", res);
     // console.log("MIDDLEWARE",req.params.filename);
     
     req.email = resp.email;
     req._id = resp.id;
-   req.body.filename=req.params.filename
+  
     next();
   });
 };

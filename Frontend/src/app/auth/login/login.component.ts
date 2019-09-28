@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   role: any;
   loading = false;
   returnUrl: string;
- 
+ unverified:any
 
   constructor(
     private fb: FormBuilder,
@@ -27,7 +27,9 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
 
 this.auth.currentUserChanged.subscribe(user=>{
+   
   if(user){
+    this.unverified="Plese Verifiy your email"
     this.role=user.role
   }
   this.role=null

@@ -10,15 +10,16 @@ import { UserService } from '../user.service';
 export class ViewUserProfileComponent implements OnInit {
 id:any
 userdata={}
+imagePath:any
   constructor(private auth:AuthorizeService,private view:UserService) { }
 
   ngOnInit() {
 
-    this.auth.getCurrentUser().subscribe(res=>{
-      this.id=res._id
-            })
+    // this.auth.getCurrentUser().subscribe(res=>{
+    //   this.id=res._id
+    //         })
 this.view.ViewUserProfile(this.id).subscribe(data=>{
-  
+  this.imagePath=data.image
 this.userdata=data
 })
   }

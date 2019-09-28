@@ -5,7 +5,8 @@
             <div class="module-inner">
                 <div class="side-bar">
                     <div class="user-info">
-                        <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="">
+                    <div *ngIf="imagePath">
+                        <img class="img-profile img-circle img-responsive center-block" src="http://localhost:3000/image/{{imagePath}}" alt=""></div>
                         <ul class="meta list list-unstyled">
                             <li class="name">
                                 <label class="label label-info">Mean Stack Developer</label>

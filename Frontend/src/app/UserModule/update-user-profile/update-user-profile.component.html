@@ -5,10 +5,19 @@
             <div class="module-inner">
                 <div class="side-bar">
                     <div class="user-info">
-                        <img class="img-profile img-circle img-responsive center-block" src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                        <div *ngIf="imagePath">
+                                <img class="img-profile img-circle img-responsive center-block"  src="http://localhost:3000/image/{{imagePath}}" alt="Profile">
+                        </div>
+                        <div *ngIf="!imagePath">
+                            <p>Image Not found</p>
+                        </div>
+                        <input #file (change)="uploadImage($event)" type="file"  enctype="multipart/form-data" accept='image/*' class="file-uploader pull-left">
                         <ul class="meta list list-unstyled">
+                                
                             <li class="name">{{defaultUserdata.username}}
                               <label class="label label-info">Mean Stack Developer</label>
+
+                              
                             </li>
                             <li class="email"><a >{{defaultUserdata.email}}</a></li>
                             <li class="activity">Last logged in: Today at 2:18pm</li>
@@ -23,18 +32,23 @@
         			</nav>
                 </div>
                 <div class="content-panel">
-                    <h2 class="title">Profile<span class="pro-label label label-warning">*Profile</span></h2>
+                        <div class="alert alert-success text-center" *ngIf="upload"  >
+                                ProfileImageUpdated
+                               </div>
+                    <h2 class="title">Profile<span class="pro-label label label-warning"></span></h2>
                     <form [formGroup]="updateForm" class="form-horizontal">
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title">Personal Info</h3>
                             <div class="form-group avatar">
+                                
                                 <figure class="figure col-md-2 col-sm-3 col-xs-12">
-             <img class="img-rounded img-responsive"  [src]="imgURL"  *ngIf="imgURL" alt="img">
+             <!-- <img class="img-rounded img-responsive"  alt="img"> -->
                   </figure>
+                  
+
                                 <div class="form-inline col-md-10 col-sm-9 col-xs-12">
-                                    <input   #file (change)="preview(file.files)" type="file"  enctype="multipart/form-data" accept='image/*' class="file-uploader pull-left">
                                     <p *ngIf="message" class="pl-4 align-middle mb-0">{{message}}</p>
-                                    <button type="submit" (click)="updateImage()" class="btn btn-sm btn-default-alt pull-left">Update Image</button>
+                                    <button type="submit" (click)="updateImage()" class="btn btn-sm btn-default-alt pull-left">Update only Image</button>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -84,7 +98,7 @@
                         <hr>
                         <div class="form-group">
                             <div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-                                <input (click)="updateUserDetails()" class="btn btn-primary" type="submit" value="Update Profile">
+                                <input (click)="updateUserDetails() ; updateImage()" class="btn btn-primary" type="submit" value="Update Profile">
                             </div>
                         </div>
                     </form>
