@@ -1,9 +1,9 @@
-var user = require("../register/register-model");
+var user = require("../UserServices/userModel");
 exports.getUser = function(req, res) {
-  var data = req.body;
   user
     .find()
     .then(function(data) {
+
       return res
         .send(data)
         .status(200)

@@ -7,6 +7,7 @@ import { TermsComponent } from "./admindashboard/terms/terms.component";
 import { ModalComponent } from "./admindashboard/modal/modal.component";
 import { AnalyticsComponent } from "./admindashboard/analytics/analytics.component";
 import { MonitorComponent } from "./admindashboard/monitor/monitor.component";
+import { DashboardComponent } from './admindashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MonitorComponent } from "./admindashboard/monitor/monitor.component";
     TermsComponent,
     ModalComponent,
     AnalyticsComponent,
-    MonitorComponent
+    MonitorComponent,
+    DashboardComponent
   ],
   imports: [CommonModule]
 })

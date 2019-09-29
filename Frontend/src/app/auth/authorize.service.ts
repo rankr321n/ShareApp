@@ -18,6 +18,7 @@ export class AuthorizeService {
   authenticate(loginData: any) {
     this.http
       .post<{ logintoken: any,role:any }>(this.url + "/login", loginData).subscribe(res=>{
+        
         this.currentUser=res;
         this.currentUserChanged.next(this.currentUser)
         localStorage.setItem("access_token",res.logintoken)
@@ -49,8 +50,14 @@ this.router.navigate(['/user'])
   getCurrentUser():Observable<any>{
     return this.http.get(this.url+"/dashboard")
     }
+
 //if user is already loggedIn
 
 
+emailVerification(token:any):Observable<any>{
+  // console.log(token);
+  
+return this.http.get(this.url+"/verify/"+token)
+}
 
 }

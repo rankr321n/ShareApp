@@ -1,128 +1,103 @@
- html,
- body {
-   margin: 0 auto !important;
-   padding: 0 !important;
-   height: 100% !important;
-   width: 100% !important;
- }
+*{
+  box-sizing:border-box;
+ /* outline:1px solid ;*/
+}
+body{
+background: #ffffff;
+background: linear-gradient(to bottom, #ffffff 0%,#e1e8ed 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e1e8ed',GradientType=0 );
+    height: 100%;
+        margin: 0;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+  
+}
 
- /* What it does: Stops email clients resizing small text. */
- * {
-   -ms-text-size-adjust: 100%;
-   -webkit-text-size-adjust: 100%;
- }
+.wrapper-1{
+  width:100%;
+  height:100vh;
+  display: flex;
+flex-direction: column;
+}
+.wrapper-2{
+  padding :30px;
+  text-align:center;
+}
+h1{
+    font-family: 'Kaushan Script', cursive;
+  font-size:4em;
+  letter-spacing:3px;
+  color:#5892FF ;
+    color: #44ca91;
+  margin:0;
+  margin-bottom:20px;
+}
+.wrapper-2 h4 {
+    margin: 0;
+    font-size: 1.3em;
+    margin-bottom: 14px;
+    color: #3e3e3e;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 1px;
+}
+.wrapper-2 p {
+    margin: 0;
+    color: #5f5f5f;
+    font-family: 'Source Sans Pro', sans-serif;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+.go-home{
+  color:#fff;
+  background:#5892FF;
+  background: #44ca90;
+  border:none;
+  padding:10px 50px;
+  margin:30px 0;
+  border-radius:30px;
+  text-transform:capitalize;
+  box-shadow: 0 10px 16px 1px rgba(174, 199, 251, 1);
+}
+.footer-like{
+  margin-top: auto; 
+  background:#D7E6FE;
+    background: #dadada;
+  padding:6px;
+  text-align:center;
+}
+.footer-like p{
+  margin:0;
+  padding:4px;
+  color:#5892FF;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing:1px;
+}
+.footer-like p a{
+  text-decoration:none;
+  color:#5892FF;
+  font-weight:600;
+}
 
- /* What it does: Centers email on Android 4.4 */
- div[style*="margin: 16px 0"] {
-   margin: 0 !important;
- }
+@media (min-width:360px){
+  h1{
+    font-size:4.5em;
+  }
+  .go-home{
+    margin-bottom:20px;
+  }
+}
 
- /* What it does: Stops Outlook from adding extra spacing to tables. */
- table,
- /* td {
-   mso-table-lspace: 0pt !important;
-   mso-table-rspace: 0pt !important;
- } */
-
- table {
-   border-spacing: 0 !important;
-   border-collapse: collapse !important;
-   table-layout: fixed !important;
-   margin: 0 auto !important;
- }
-
- table table table {
-   table-layout: auto;
- }
-
- img {
-   -ms-interpolation-mode: bicubic;
- }
-
- *[x-apple-data-detectors],
- /* iOS */
- .x-gmail-data-detectors,
- /* Gmail */
- .x-gmail-data-detectors *,
- .aBn {
-   border-bottom: 0 !important;
-   cursor: default !important;
-   color: inherit !important;
-   text-decoration: none !important;
-   font-size: inherit !important;
-   font-family: inherit !important;
-   font-weight: inherit !important;
-   line-height: inherit !important;
- }
-
- .a6S {
-   display: none !important;
-   opacity: 0.01 !important;
- }
-
- img.g-img+div {
-   display: none !important;
- }
-
- /* What it does: Prevents underlining the button text in Windows 10 */
- .button-link {
-   text-decoration: none !important;
- }
-
- @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
-   .email-container {
-     min-width: 375px !important;
-   }
- }
-
- .button-td,
- .button-a {
-   transition: all 100ms ease-in;
- }
-
- .button-td:hover,
- .button-a:hover {
-   background: #555555 !important;
-   border-color: #555555 !important;
- }
-
- /* Media Queries */
- @media screen and (max-width: 480px) {
-   .fluid {
-     width: 100% !important;
-     max-width: 100% !important;
-     height: auto !important;
-     margin-left: auto !important;
-     margin-right: auto !important;
-   }
-
-   .stack-column,
-   .stack-column-center {
-     display: block !important;
-     width: 100% !important;
-     max-width: 100% !important;
-     direction: ltr !important;
-   }
-
-   /* And center justify these ones. */
-   .stack-column-center {
-     text-align: center !important;
-   }
-
-   .center-on-narrow {
-     text-align: center !important;
-     display: block !important;
-     margin-left: auto !important;
-     margin-right: auto !important;
-     float: none !important;
-   }
-
-   table.center-on-narrow {
-     display: inline-block !important;
-   }
-
-   .email-container p {
-     font-size: 17px !important;
-     line-height: 22px !important;
-   }
- }
+@media (min-width:600px){
+  .content{
+  max-width:1000px;
+  margin:0 auto;
+}
+  .wrapper-1{
+  height: initial;
+  max-width:620px;
+  margin:0 auto;
+  margin-top:100px;
+  box-shadow: 4px 8px 40px 8px rgba(88, 146, 255, 0.2);
+}
+  
+}

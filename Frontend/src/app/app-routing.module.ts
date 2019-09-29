@@ -8,7 +8,7 @@ import { UserManagementComponent } from "./AdminModule/admin/admindashboard/user
 import { TermsComponent } from "./AdminModule/admin/admindashboard/terms/terms.component";
 import { ModalComponent } from "./AdminModule/admin/admindashboard/modal/modal.component";
 import { AuthGuard } from "./auth/auth.guard";
-import { componentFactoryName } from "@angular/compiler";
+
 import { VerifyComponent } from "./auth/verify/verify.component";
 import { ProfileComponent } from "./UserModule/ShareModule/profile.component";
 import { AnalyticsComponent } from "./AdminModule/admin/admindashboard/analytics/analytics.component";
@@ -21,6 +21,7 @@ import { AboutusComponent } from './UserModule/aboutus/aboutus.component';
 import { UserTermsComponent } from './UserModule/user-terms/user-terms.component';
 import { UpdateUserProfileComponent } from './UserModule/update-user-profile/update-user-profile.component';
 import { ViewUserProfileComponent } from './UserModule/view-user-profile/view-user-profile.component';
+import { DashboardComponent } from './AdminModule/admin/admindashboard/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -32,6 +33,7 @@ const routes: Routes = [
     component: AdmindashboardComponent,
     canActivate: [AuthGuard],
     children: [
+      {path:"",component:DashboardComponent},
       { path: "manage-user", component: UserManagementComponent },
       { path: "terms", component: TermsComponent },
       { path: "analytics", component: AnalyticsComponent },

@@ -4,8 +4,7 @@ const jwt = require("jsonwebtoken");
 
 module.exports = {
   authenticate: function(req, res) {
-    // console.log("Auth server");
-    
+   
     registerModel.findOne(
       {
         email: req.body.email
@@ -13,12 +12,11 @@ module.exports = {
 
       async function(err, user) {
         if (!user)
-          return (
+         { return (
              res.status(400).send({ msg: "User is not registered with us" })
-          );
+          );}
         else {
-         
-          
+       
           const isMatch = await bcrypt.compare(
             req.body.password,
             user.password
@@ -28,16 +26,28 @@ module.exports = {
           const options = { issuer: "Randhir", expiresIn: "5h" };
           const logintoken = jwt.sign(payload, secretKey, options);
         const role=user.role
+        ; 
          
-         
-
-
-         if(user.isVerified&&isMatch&&role)
+        if(user.isVerified&&isMatch&&role)
 {
+  
+  let active = new registerModel({
+  email: req.body.email,
+  isloggedIn:req.body.isloggedIn
+})
+  registerModel.updateOne(
+    { email: active.email },
+    { $set: { isloggedIn: true } },
+    err => {
+      if (err) {
+        return err;
+      }
+})   
+res.status(201).json({logintoken,role})      
+}
 
-  res.status(201).json({logintoken,role})
+res.status(403).json("Authentication Failure, Not a verified User")
 
-}         
-            res.json("You are unverified")
-      
-        }})}}
+
+
+      }})}}

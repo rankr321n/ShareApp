@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { AuthorizeService } from "../authorize.service";
-import { first } from "rxjs/operators";
+
 import { Router, ActivatedRoute } from "@angular/router";
 
 @Component({
@@ -25,18 +25,18 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
+    
 this.auth.currentUserChanged.subscribe(user=>{
    
   if(user){
-    this.unverified="Plese Verifiy your email"
+    
     this.role=user.role
   }
   this.role=null
+ 
+  
 })
 
-     // get return url from route parameters or default to '/'
-    //  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     
     this.loginForm = this.fb.group({
       email: [

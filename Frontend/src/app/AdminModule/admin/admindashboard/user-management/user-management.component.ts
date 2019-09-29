@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef, ViewChild } from "@angular/core";
 
 import { AdminService } from "../admin.service";
+import { AuthorizeService } from 'src/app/auth/authorize.service';
 
 @Component({
   selector: "app-user-management",
@@ -12,23 +13,19 @@ export class UserManagementComponent implements OnInit {
   response: any;
   alert:any
   managebutton: any
-  constructor(private user: AdminService) { }
+  constructor(private user: AdminService,private auth:AuthorizeService) { }
 
   ngOnInit() {
-    window.setTimeout(function () {
-      $(".alert-danger").fadeTo(500, 0).slideUp(500, function () {
-        $(this).remove();
-      });
-      $(".alert-success").fadeTo(500, 0).slideUp(500, function () {
-        $(this).remove();
-      });
-    }, 2000);
-
+   
     this.user.manageUsers().subscribe(data => {
       this.users = data;
-
-
-    });
+      // console.log(data);
+      
+  if(data.message){
+ this.auth.logout()
+  
+}
+ });
   }
 
   blockUser(email: any) {

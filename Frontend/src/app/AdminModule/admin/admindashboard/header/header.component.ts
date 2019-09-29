@@ -8,8 +8,10 @@ import { AuthorizeService } from "src/app/auth/authorize.service";
   styleUrls: ["./header.component.css"]
 })
 export class HeaderComponent implements OnInit {
-  username: any;
+  
   constructor(private admin: AdminService, private auth: AuthorizeService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
 }

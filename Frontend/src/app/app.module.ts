@@ -32,6 +32,7 @@ import { UpdateUserProfileComponent } from "./UserModule/update-user-profile/upd
 import { ViewUserProfileComponent } from "./UserModule/view-user-profile/view-user-profile.component";
 import { SearchPipe } from "./UserModule/FriendModule/addfriend/search.pipe";
 import { InterceptorService } from './auth/interceptor.service';
+import { DashboardComponent } from './AdminModule/admin/admindashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { InterceptorService } from './auth/interceptor.service';
     UserTermsComponent,
     UpdateUserProfileComponent,
     ViewUserProfileComponent,
+    DashboardComponent,
     SearchPipe
   ],
   imports: [
