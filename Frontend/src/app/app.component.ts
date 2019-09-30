@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { AuthorizeService } from "./auth/authorize.service";
 
 @Component({
@@ -9,14 +9,14 @@ import { AuthorizeService } from "./auth/authorize.service";
 })
 export class AppComponent implements OnInit {
   title = "ShareApp";
-  
-  constructor(private router: Router, private auth: AuthorizeService)
+  returnUrl:string
+  constructor(private router: Router, private auth: AuthorizeService, private route: ActivatedRoute)
    {
      }
 
    
   ngOnInit(){
-
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl']
 this.auth.autologin()
   }
   logout() {

@@ -18,14 +18,17 @@ module.exports = {
           );
         }
 
+var testpass=await bcrypt.hash(req.body.password,10)
+console.log("TESTHASH",testpass);
+console.log("ORIGINAL HASH",user.password);
         var isMatch =await bcrypt.compare(
           req.body.password,
           user.password
         );
-        
+        console.log(isMatch)
         if(user && user.isVerified && isMatch!==null && isMatch==true){
          
-
+          console.log(isMatch)
           const payload = { id: user.id, email: user.email };
           const secretKey = "verify";
           const options = { issuer: "Randhir", expiresIn: "5h" };

@@ -2,15 +2,16 @@ import { Injectable } from "@angular/core";
 import { Observable, BehaviorSubject, config } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import { map } from "rxjs/operators";
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 @Injectable({
   providedIn: "root"
 })
 export class AuthorizeService {
+  returnUrl:string
  currentUser:any
  currentUserChanged=new BehaviorSubject<any>(null)
-  constructor(private http: HttpClient,private router:Router) {
-    
+  constructor(private http: HttpClient,private router:Router, private route: ActivatedRoute,) {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl']
   }
   url = "http://localhost:3000";
   role:any
@@ -59,10 +60,10 @@ const role=localStorage.getItem("role")
 const token=localStorage.getItem("access_token")
 
 if(role=='admin'&&token){
-this.router.navigate(['/admin'])  
+this.router.navigate([this.returnUrl])  
 }
 if(role=='user' && token){
-  this.router.navigate(['/user'])
+  this.router.navigate([this.returnUrl])
 }
 
 }

@@ -3,7 +3,7 @@ let express = require('express'),
   cors = require('cors'),
   bodyParser = require('body-parser'),
   dbConfig = "mongodb://localhost:27017/shareApp"
-
+var verify=require('../auth/verify')
 
 // Routes to Handle Request
 const userRoute = require('./fileUploads')

@@ -44,13 +44,13 @@ export class MultiUploadComponent implements OnInit {
 
     // Set files form control
     this.form.patchValue({
-      avatar: this.fileObj
+      files: this.fileObj
     })
 
-    this.form.get('avatar').updateValueAndValidity()
+    this.form.get('files').updateValueAndValidity()
 
     // Upload to server
-    this.dragdropService.addFiles(this.form.value.avatar)
+    this.dragdropService.addFiles(this.form.value.files)
       .subscribe((event: HttpEvent<any>) => {
         switch (event.type) {
           case HttpEventType.Sent:

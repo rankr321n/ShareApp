@@ -44,7 +44,7 @@ app.use("/termsandconditions",verify, terms.getTerms);
 
 //Admin routes
 app.use("/getuser",verify, getUserDataForAdmin.getUser);
-app.use("/terms",verify, termController.terms);
+app.use("/terms", termController.terms);
 app.use("/block", verify,blockUserControl.blockUser);
 app.use("/unblock", verify,unblockControl.unblockUser);
 
