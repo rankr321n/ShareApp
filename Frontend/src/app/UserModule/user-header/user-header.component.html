@@ -10,7 +10,8 @@
         </div>
         <div id="navbar-collapse1" class="collapse navbar-collapse">
                      <ul class="nav navbar-nav navbar-right">
-                <li><a target="_ext">Hey! {{loggedInUser.firstname}}</a></li>
+                <li><a target="_ext">
+                  <i class="glyphicon glyphicon-lock"></i> Hey! {{loggedInUser.firstname}}</a></li>
                 <li>
                     <a data-toggle="dropdown" class="dropdown-toggle"><i class="glyphicon glyphicon-bell  "
               ><span class="badge">17</span></i
@@ -86,15 +87,15 @@
         <li>
           <a data-toggle="dropdown" class="dropdown-toggle">
             <i class="glyphicon glyphicon-user dropdown-toggle"></i
-          ></a>
-          <ul class="dropdown-menu">
+          >{{loggedInUser.lastname}}</a>
+          <!-- <ul class="dropdown-menu">
             <li>
               <a><span class="badge pull-right"></span>Profile</a>
             </li>
             <li>
               <a  (click)="api.logout()" routerLink="/"><span class="badge pull-right"></span>Logout</a>
             </li>
-          </ul>
+          </ul> -->
         </li>
         <li>
           <div class="navbar-header">
@@ -107,45 +108,26 @@
             ></a>
             <ul class="nav dropdown-menu">
               <li>
-                <a
-                  ><i
+                <a  routerLink="/user/viewprofile"><i
                     style="color:#1111dd;"
                     class="glyphicon glyphicon-user"
                   ></i>
                   Profile</a
                 >
               </li>
-              <li>
-                <a
-                  ><i
-                    style="color:#0000aa;"
-                    class="glyphicon glyphicon-dashboard"
-                  ></i>
-                  Dashboard</a
-                >
-              </li>
-              <li>
-                <a
-                  ><i
-                    style="color:#11dd11;"
-                    class="glyphicon glyphicon-inbox"
-                  ></i>
-                  Pages</a
-                >
-              </li>
+              
+              
               <li class="nav-divider"></li>
               <li>
-                <a
+                <a routerLink="/" (click)="api.logout()"
                   ><i
                     style="color:#dd1111;"
-                    class="glyphicon glyphicon-cog"
+                    class="glyphicon glyphicon-lock"
                   ></i>
-                  Settings</a
+                  Logout</a
                 >
               </li>
-              <li>
-                <a><i class="glyphicon glyphicon-plus"></i> More..</a>
-              </li>
+              
             </ul>
 
             <button

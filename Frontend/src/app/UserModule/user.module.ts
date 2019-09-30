@@ -13,6 +13,9 @@ import { UpdateUserProfileComponent } from "./update-user-profile/update-user-pr
 import { ViewUserProfileComponent } from "./view-user-profile/view-user-profile.component";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
 import { SearchPipe } from "./FriendModule/addfriend/search.pipe";
+import { MultiUploadComponent } from './ShareModule/multi-upload/multi-upload.component';
+import { DragDropFileUploadDirective } from './ShareModule/drag-drop-file-upload.directive';
+import { ViewFilesComponent } from './ShareModule/view-files/view-files.component';
 @NgModule({
   declarations: [
     FriendlistComponent,
@@ -24,7 +27,10 @@ import { SearchPipe } from "./FriendModule/addfriend/search.pipe";
     UserTermsComponent,
     UpdateUserProfileComponent,
     ViewUserProfileComponent,
-    SearchPipe
+    SearchPipe,
+    MultiUploadComponent,
+    DragDropFileUploadDirective,
+    ViewFilesComponent
   ],
   imports: [CommonModule, ReactiveFormsModule, FormsModule]
 })

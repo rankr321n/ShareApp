@@ -9,19 +9,17 @@ import { AuthorizeService } from '../authorize.service';
 })
 export class VerifyComponent implements OnInit {
   usertoken=this.actRoute.snapshot.params["token"];
-error=false
-message=false
   constructor(private actRoute: ActivatedRoute,private auth:AuthorizeService) {
   }
-
+message:boolean
   ngOnInit() {
    this.auth.emailVerification(this.usertoken).subscribe(res=>{
-    this.error=res.msg
-    if(res){
-if(res.msg="We were unable to find a valid token. Your token my have expired."){
-this.message=true
+    // console.log(res);
+    if(res.msg=="The account has been verified. Please log in."||res.msg=="This user has already been verified.")
+{
+  this.message=!this.message
 }
-    }     
+         
    })
     
   }

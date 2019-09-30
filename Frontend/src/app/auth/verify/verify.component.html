@@ -1,4 +1,4 @@
-<div *ngIf="message" class=content>
+<div *ngIf="message"  class=content>
   <div class="wrapper-1">
     <div class="wrapper-2">
       <h1>Thank you !</h1>
@@ -16,7 +16,7 @@
     </div>
 </div>
 </div>
-
+<div >
 <div *ngIf="!message" class=content>
     <div class="wrapper-1">
       <div class="wrapper-2">
@@ -29,11 +29,11 @@
         </button>
       </div>
       <div class="footer-like">
-        <p>Email verification Complete
+        <p>Email verification Failed
          <a routerLink="/">Go Home</a>
         </p>
       </div>
   </div>
   </div>
-
+</div>
 

@@ -33,6 +33,8 @@ import { ViewUserProfileComponent } from "./UserModule/view-user-profile/view-us
 import { SearchPipe } from "./UserModule/FriendModule/addfriend/search.pipe";
 import { InterceptorService } from './auth/interceptor.service';
 import { DashboardComponent } from './AdminModule/admin/admindashboard/dashboard/dashboard.component';
+import { MultiUploadComponent } from './UserModule/ShareModule/multi-upload/multi-upload.component';
+import { ViewFilesComponent } from './UserModule/ShareModule/view-files/view-files.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { DashboardComponent } from './AdminModule/admin/admindashboard/dashboard
     UpdateUserProfileComponent,
     ViewUserProfileComponent,
     DashboardComponent,
-    SearchPipe
+    SearchPipe,
+    MultiUploadComponent,
+    ViewFilesComponent
   ],
   imports: [
     BrowserModule,

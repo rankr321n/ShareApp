@@ -19,6 +19,7 @@ role=null
 
       this.authorize.currentUserChanged.subscribe(user=>{
         if(user){
+          
           this.role=user.role
         }
         

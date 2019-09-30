@@ -1,5 +1,5 @@
 var jwt = require("jsonwebtoken");
-
+const notifier = require('node-notifier');
 var registerModel = require("./register-model");
 var mailsend = require("../../auth-token");
 
@@ -15,6 +15,7 @@ exports.signupPost = function(req, res) {
       }
       if (user) {
         res.json("User already exists" );
+        notifier.notify('User already exists');
       }
     }
   );
@@ -30,8 +31,9 @@ exports.signupPost = function(req, res) {
       res.status(500);
     } else
       res.status(200).json("User added successfully and verification mail sent"
+      
       );
-
+      notifier.notify('You have been successfully registered and verification mail sent on your email');
     //create json webtoken
 
     const registertoken = jwt.sign({ id: user._id }, "secret", {

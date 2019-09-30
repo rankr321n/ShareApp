@@ -22,6 +22,7 @@ export class AuthorizeService {
         this.currentUser=res;
         this.currentUserChanged.next(this.currentUser)
         localStorage.setItem("access_token",res.logintoken)
+        localStorage.setItem("role",res.role)
         if(res){
           this.role=res.role
         }
@@ -52,6 +53,22 @@ this.router.navigate(['/user'])
     }
 
 //if user is already loggedIn
+
+autologin(){
+const role=localStorage.getItem("role")
+const token=localStorage.getItem("access_token")
+
+if(role=='admin'&&token){
+this.router.navigate(['/admin'])  
+}
+if(role=='user' && token){
+  this.router.navigate(['/user'])
+}
+
+}
+
+
+
 
 
 emailVerification(token:any):Observable<any>{

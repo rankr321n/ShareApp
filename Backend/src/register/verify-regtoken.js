@@ -11,7 +11,7 @@ exports.RegVer=function(req,res)
     // console.log(user);
     
     if (!user){ 
-        return res.status(400).send({
+        return res.status(400).json({
         type: 'not-verified',
         msg: 'We were unable to find a valid token. Your token my have expired.'
     })}
@@ -23,10 +23,10 @@ exports.RegVer=function(req,res)
     }, function () {
         // console.log(user);
         
-        if (!user) return res.status(403).send({
+        if (!user) return res.json({
             msg: 'We were unable to find a user for this token.'
         });
-        if (user.isVerified) return res.send({
+        if (user.isVerified) return res.json({
             type: 'already-verified',
             msg: 'This user has already been verified.'
         });
@@ -35,10 +35,10 @@ exports.RegVer=function(req,res)
         user.isVerified = true;
         user.save(function (err) {
             if (err) {
-                return res.status(500).send({
+                 res.json({
                     msg: err.message
                 });
             }
-            res.send("The account has been verified. Please log in.");
+            res.json("The account has been verified. Please log in.");
         })
     })})}

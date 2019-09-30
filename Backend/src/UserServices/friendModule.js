@@ -1,41 +1,12 @@
 const User = require("./userModel");
-// exports.get_friend = (req, res, next) => {
-//     if (req.body.email === null) {
-//       return res.status(400).send("Please Enter Email Address");
-//     } else if (req.email === req.body.email) {
-//       return res.status(400).send("You can not send Request to yourself");
-//     } else {
-//       User.findOne({ email: req.body.email })
-//         .populate("receivedRequests friends sentRequests")
-//         .select("firstname lastname email _id mobile")
-//         .exec()
-//         .then(user => {
-//           if (user.length < 1) {
-//             return res.status(404).send("Not a Registered User");
-//           }
-  
-//           alreadyFriend = false;
-  
-//           for (af of user.friends) {
-//             if (af._id == req._id) {
-//               alreadyFriend = true;
-//               return res.status(401).send("We Are Already Friends");
-//             }
-//           }
-//           if (!alreadyFriend) {
-//             res.status(200).send(user);
-//           }
-//         })
-//         .catch(err => {
-//           return res.status(500).send("Not a Registered User");
-//         });
-//     }
-//   };
+const notifier = require('node-notifier');
   
   exports.post_friend_request = (req, res, next) => {
     // console.log(req.body.email, req._id);
 
     if (req.email === req.body.email) {
+      notifier.notify('You can not send Request to yourself');
+
             return res.status(404).send("You can not send Request to yourself")
             
           }
@@ -48,6 +19,7 @@ const User = require("./userModel");
           for (af of friend.friends) {
             if (af._id == req._id) {
               alreadyFriend = true;
+              notifier.notify('We Are Already Friends');
               return res.status(401).send("We Are Already Friends");
             }
           }
@@ -58,6 +30,7 @@ const User = require("./userModel");
         for (f of friend.receivedRequests) {
           if (f.email === req.email &&f._id) {
                        alreadySent = true;
+                       notifier.notify('Request Already Sent');
             return res.status(400).send("Request Already Sent");
           }}
         
@@ -86,9 +59,11 @@ const User = require("./userModel");
                       email: friend.email,
                       
                     };
+                    notifier.notify('Request Sent');
                     res.status(200).send(response);
                   })
                   .catch(err => {
+                    
                     return res.status(400).send("Request Could Not Sent.");
                   });
               });

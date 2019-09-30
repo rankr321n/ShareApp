@@ -1,4 +1,5 @@
 var User = require("../register/register-model");
+const notifier = require('node-notifier');
 exports.unblockUser = function(req, res) {
   data = req.body.email;
   // console.log("data", data);
@@ -6,7 +7,7 @@ exports.unblockUser = function(req, res) {
   User.findOneAndUpdate({ email: data }, { $set: { isVerified: true } })
     .then(function() {
       res.json({ msg: "User Access restored" });
-      // console.log(data);
+      notifier.notify('User Access restored');
     })
     .catch(function(e) {
       return e;

@@ -22,6 +22,8 @@ import { UserTermsComponent } from './UserModule/user-terms/user-terms.component
 import { UpdateUserProfileComponent } from './UserModule/update-user-profile/update-user-profile.component';
 import { ViewUserProfileComponent } from './UserModule/view-user-profile/view-user-profile.component';
 import { DashboardComponent } from './AdminModule/admin/admindashboard/dashboard/dashboard.component';
+import { MultiUploadComponent } from './UserModule/ShareModule/multi-upload/multi-upload.component';
+import { ViewFilesComponent } from './UserModule/ShareModule/view-files/view-files.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -32,6 +34,7 @@ const routes: Routes = [
     path: "admin",
     component: AdmindashboardComponent,
     canActivate: [AuthGuard],
+    
     children: [
       {path:"",component:DashboardComponent},
       { path: "manage-user", component: UserManagementComponent },
@@ -46,6 +49,7 @@ const routes: Routes = [
   
   { path: "user", component: HomeComponent ,
   canActivate:[AuthGuard],
+
   children:[
     {path:"addfriend",component:AddfriendComponent},
     {path:"friends",component:FriendlistComponent},
@@ -53,7 +57,9 @@ const routes: Routes = [
     {path:"about",component:AboutusComponent},
     {path:"terms", component:UserTermsComponent},
     {path:"updateprofile",component:UpdateUserProfileComponent},
-    {path:"viewprofile",component:ViewUserProfileComponent}
+    {path:"viewprofile",component:ViewUserProfileComponent},
+    {path:"file-upload",component:MultiUploadComponent},
+    {path:"view-upload",component:ViewFilesComponent}
     
   ]},
   

@@ -1,4 +1,5 @@
 var User=require('./userModel')
+const notifier = require('node-notifier');
 
 exports.UpdateUserDetails= function (req,res){
 var id=req.body.id;
@@ -10,6 +11,7 @@ query.exec(function(err, updatedFields) {
     else{
         
         res.status(200).json("User profile updated")
+        notifier.notify('User profile updated');
    }
 });
 }

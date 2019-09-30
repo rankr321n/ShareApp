@@ -3,7 +3,7 @@ var user = require("./userModel");
 
 exports.getRegUserForuser = function(req, res, next) {
     //query with mongoose
-    var query = user.find({}).select("email firstname lastname");
+    var query = user.find({}).select("email firstname lastname role");
 
     query.exec(function(err, someValue) {
         if (err) return next(err);

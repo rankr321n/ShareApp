@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-
+const notifier = require('node-notifier');
 module.exports = (req, res, next) => {
 
   // console.log("M token verify karunga");
@@ -13,12 +13,14 @@ module.exports = (req, res, next) => {
 
 
   if (token === "null") {
+    notifier.notify('Please Login');
     return res.status(401).send("Unauthorized request");
   }
   const payload = jwt.verify(token, "verify", (err, resp) => {
     if (err) {
       console.log("err", err.message);
      
+      notifier.notify('Please Login Again, Your Session Expired');
       // return
       return res.json({message:"Authentication Failure"});
     }

@@ -43,9 +43,10 @@
         </div>
 
         <!--  -->
-        <ng-container *ngFor="let item of users | search: usersearch;let i=index">
         
-        <div class="nearby-user">
+        <ng-container *ngFor="let item of users | search: usersearch;let i=index">
+            
+        <div *ngIf= "item.role=='user'"class="nearby-user">
           <div class="row">
             <div class="col-md-2 col-sm-2">
               <img
