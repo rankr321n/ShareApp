@@ -33,12 +33,12 @@ exports.RegVer=function(req,res)
 
         // Verify and save the user
         user.isVerified = true;
-        user.save(function (err) {
-            if (err) {
-                 res.json({
-                    msg: err.message
-                });
-            }
-            res.json("The account has been verified. Please log in.");
+        console.log(user._id);
+        
+        Token.findOneAndUpdate({ _id:user._id }, { $set: { isVerified: true } },function(request){
+           
+            res.json("updated")
         })
+       
+        
     })})}

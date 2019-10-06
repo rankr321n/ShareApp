@@ -21,12 +21,12 @@ files:any
   
   ngOnInit() {
     
-    // this.auth.getCurrentUser().subscribe(res=>{
-    //   this.id=res._id
-    //   this.imagePath=res.image
-    //   console.log(this.imagePath);
-    //   // 
-    // })
+    this.auth.getCurrentUser().subscribe(res=>{
+      this.id=res._id
+      this.imagePath=res.image
+      console.log(this.imagePath);
+      
+    })
     
   
     this.userdetail.ViewUserProfile(this.id).subscribe(res=>{
@@ -70,20 +70,20 @@ files:any
   //   }
 
   // }
-  // uploadImage(evt) {
-  //       this.files = evt.target.files[0];
+  uploadImage(evt) {
+        this.files = evt.target.files[0];
         
-  // }
-  uploadImage(event: any) {
-    this.files = event.target.files[0];
-    if (event.target.files && event.target.files[0]) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.files=event.target.files[0];
-      };
-      reader.readAsDataURL(event.target.files[0]);
-    }
   }
+  // uploadImage(event: any) {
+  //   this.files = event.target.files[0];
+  //   if (event.target.files && event.target.files[0]) {
+  //     const reader = new FileReader();
+  //     reader.onload = () => {
+  //       this.files=event.target.files[0];
+  //     };
+  //     reader.readAsDataURL(event.target.files[0]);
+  //   }
+  // }
   
   
 updateUserDetails()

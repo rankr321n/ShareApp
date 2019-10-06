@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
 
    
   ngOnInit(){
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl']
-this.auth.autologin()
+  
+// 
   }
   logout() {
     this.auth.logout();
