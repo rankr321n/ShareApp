@@ -1,18 +1,21 @@
-let express = require('express'),
-  multer = require('multer'),
-  mongoose = require('mongoose'),
+let express = require("express"),
+  multer = require("multer"),
+  mongoose = require("mongoose"),
   router = express.Router();
 
 // Multer File upload settings
-const DIR = './public/';
+const DIR = "./public/";
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, DIR);
   },
   filename: (req, file, cb) => {
-    const fileName = file.originalname.toLowerCase().split(' ').join('-');
-    cb(null, fileName)
+    const fileName = file.originalname
+      .toLowerCase()
+      .split(" ")
+      .join("-");
+    cb(null, fileName);
   }
 });
 
@@ -22,45 +25,54 @@ var upload = multer({
   //   fileSize: 1024 * 1024 * 5
   // },
   fileFilter: (req, file, cb) => {
-    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg"||file.mimetype=="application/pdf"||file.mimetype=="video/mp4") {
+    if (
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/jpg" ||
+      file.mimetype == "image/jpeg" ||
+      file.mimetype == "application/pdf" ||
+      file.mimetype == "video/mp4"
+    ) {
       cb(null, true);
     } else {
       cb(null, false);
-      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+      return cb(new Error("Only .png, .jpg and .jpeg format allowed!"));
     }
   }
 });
 
 // User model
-let User = require('./FileSchema');
+let User = require("./FileSchema");
 
-router.post('/create-user', upload.array('files', 6), (req, res, next) => {
-  const reqFiles = []
-  const url = req.protocol + '://' + req.get('host')
+router.post("/create-user", upload.array("files", 6), (req, res, next) => {
+  const reqFiles = [];
+  const url = req.protocol + "://" + req.get("host");
   for (var i = 0; i < req.files.length; i++) {
-    reqFiles.push(url + '/public/' + req.files[i].filename)
+    reqFiles.push(url + "/public/" + req.files[i].filename);
   }
 
   const user = new User({
     _id: new mongoose.Types.ObjectId(),
     files: reqFiles
   });
-  user.save().then(result => {
-    console.log(result);
-    res.status(201).json({
-      message: "Done upload!",
-      userCreated: {
-        _id: result._id,
-        files: result.files
-      }
-    })
-  }).catch(err => {
-    console.log(err),
-      res.status(500).json({
-        error: err
+  user
+    .save()
+    .then(result => {
+      console.log(result);
+      res.status(201).json({
+        message: "Done upload!",
+        userCreated: {
+          _id: result._id,
+          files: result.files
+        }
       });
-  })
-})
+    })
+    .catch(err => {
+      console.log(err),
+        res.status(500).json({
+          error: err
+        });
+    });
+});
 
 router.get("/", (req, res, next) => {
   User.find().then(data => {

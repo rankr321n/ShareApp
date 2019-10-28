@@ -1,14 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 // Define Schema
-let userSchema = new Schema({
-  _id: mongoose.Schema.Types.ObjectId,
-  files: {
-    type: Array
+let userSchema = new Schema(
+  {
+    _id: mongoose.Schema.Types.ObjectId,
+    files: {
+      type: Array
+    }
   },
-}, {
-  collection: 'fileuploads'
-})
+  {
+    collection: "fileuploads"
+  }
+);
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model("files", userSchema);

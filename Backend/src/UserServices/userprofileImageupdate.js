@@ -14,16 +14,11 @@ var verify=require('../auth/verify');
 
 const UserModel=require('./userModel')
 
-// Middleware
-// app.use(bodyParser.json());
-// app.use(methodOverride('_method'));
-// app.set('view engine', 'ejs');
-
 // Mongo URI
 const mongoURI = 'mongodb://localhost:27017/shareApp';
 
 // Create mongo connection
-const conn = mongoose.createConnection(mongoURI);
+const conn = mongoose.createConnection(mongoURI,{useNewUrlParser: true });
 
 // Init gfs
 let gfs;
